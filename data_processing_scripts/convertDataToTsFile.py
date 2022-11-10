@@ -1,3 +1,8 @@
+# Author: Harry Redman
+# Created on: 10/11/2022
+# Last update: [10/11/2022], [transforms data from csv file to ts file for powerlift movements]
+# Description: [takes csv files of each data instance and converts all the data into a .ts file so that it can be used with classifiers]
+
 import pandas as pd
 import numpy as np
 import os

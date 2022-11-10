@@ -1,3 +1,8 @@
+# Author: Harry Redman
+# Created on: 10/11/2022
+# Last update: [10/11/2022], [created information gain function and skeleton functions for gini and chi squared]
+# Description: [take raw sensor data and combine both the accelerometer and gyroscope data together into one csv and remove the 
+# first 5 seconds of data and then take a 10 second sample of the data instance]
 import os
 import pandas as pd
 import numpy as np
