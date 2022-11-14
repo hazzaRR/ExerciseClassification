@@ -1,41 +1,58 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
-squat_acc = pd.read_csv('./rawData/squat/squat_set1_2022-11-04/Accelerometer.csv')
-squat_gyro = pd.read_csv('./rawData/squat/squat_set1_2022-11-04/Gyroscope.csv')
-squat_acc2 = pd.read_csv('./rawData/squat/squat_set2_2022-11-04/Accelerometer.csv')
-squat_gyro2 = pd.read_csv('./rawData/squat/squat_set2_2022-11-04/Gyroscope.csv')
-bench_press_acc = pd.read_csv('./rawData/bench_press/bench_press_set1_2022-11-04/Accelerometer.csv')
-bench_press_gyro = pd.read_csv('./rawData/bench_press/bench_press_set1_2022-11-04/Gyroscope.csv')
-deadlift_acc = pd.read_csv('./rawData/deadlift/deadlift_set1_2022-11-04/Accelerometer.csv')
-deadlift_gyro = pd.read_csv('./rawData/deadlift/deadlift_set1_2022-11-04/Gyroscope.csv')
+CURRENT_PATH = os.getcwd()
+print(CURRENT_PATH)
+
+def displayGraphs(table, movement):
+
+    table = pd.read_csv(os.path.join(CURRENT_PATH, "data_instance", table))
+
+    a_x = table['a_x']
+    a_y = table['a_y']
+    a_z = table['a_z']
+    g_x = table['g_x']
+    g_y = table['g_y']
+    g_z = table['g_z']
+    x = table['Timestamps (ms)']
+
+    plt.subplot(6, 1, 1)
+    plt.plot(x,a_x)
+    plt.title("X_acc")
+    plt.subplot(6, 1, 2)
+    plt.plot(x,a_y)
+    plt.title("Y_acc")
+    plt.subplot(6, 1, 3)
+    plt.plot(x,a_z)
+    plt.title("Z_acc")
+
+    plt.subplot(6, 1, 4)
+    plt.plot(x,g_x)
+    plt.title("X_gyro")
+    plt.subplot(6, 1, 5)
+    plt.plot(x,g_y)
+    plt.title("Y_gyro")
+    plt.subplot(6, 1, 6)
+    plt.plot(x,g_z)
+    plt.title("Z_gyro")
+
+    plt.suptitle(movement[0])
+    # plt.show()
+
+    filename = movement[0] + "_" + movement[2].split(".")[0] + ".png"
+
+    print(filename)
+
+    plt.savefig(os.path.join(CURRENT_PATH, "data_graphs", filename))
+
+    plt.clf()
+
+for subdir, dirs, files in os.walk(os.path.join(CURRENT_PATH, "data_instance")):
+        for file in files:
+            movement = file.split('_')
+            # print(movement)
+            displayGraphs(file, movement)
 
 
-def displayGraphs(table):
-    y = table['X']
-    y1 = table['Y']
-    y2 = table['Z']
-    x = table['Milliseconds']
 
-    plt.subplot(3, 1, 1)
-    plt.plot(x,y)
-    plt.title("X Axis")
-    plt.subplot(3, 1, 2)
-    plt.plot(x,y1)
-    plt.title("Y Axis")
-    plt.subplot(3, 1, 3)
-    plt.plot(x,y2)
-    plt.title("Z Axis")
-
-    plt.suptitle("MY SHOP")
-    plt.show()
-
-
-displayGraphs(squat_acc)
-displayGraphs(squat_acc2)
-displayGraphs(squat_gyro)
-displayGraphs(squat_gyro2)
-displayGraphs(bench_press_acc)
-displayGraphs(bench_press_gyro)
-displayGraphs(deadlift_acc)
-displayGraphs(deadlift_gyro)
