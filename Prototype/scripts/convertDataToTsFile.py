@@ -8,13 +8,12 @@ import numpy as np
 import os
 from sktime.datasets._data_io import write_ndarray_to_tsfile
 
+
+# def create_ts_file(test_split=False)
+
 CURRENT_PATH = os.getcwd()
-
-
 data_array = []
-
 class_label_values = []
-
 rootdir = os.path.join(CURRENT_PATH, "data_instance")
 
 
