@@ -31,7 +31,7 @@ X_test_gyro = X_test.iloc[:,3:6]
 
 def KNN_experiment(X_train, y_train, X_test, y_test, distance_measure):
 
-    clf = KNeighborsTimeSeriesClassifier(distance=distance_measure)
+    clf = KNeighborsTimeSeriesClassifier(distance=distance_measure, )
 
 
     start = time.time()
