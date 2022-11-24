@@ -21,17 +21,13 @@ print(np.shape(y_train))
 
 X_train_acc = X_train.iloc[:,0:3]
 X_test_acc = X_test.iloc[:,0:3]
-# y_train_acc = y_train.iloc[:,0:3]
-# y_test_acc = y_test.iloc[:,0:3]
 
 X_train_gyro = X_train.iloc[:,3:6]
 X_test_gyro = X_test.iloc[:,3:6]
-# y_train_gyro = y_train.iloc[:,3:6]
-# y_test_gyro = y_test.iloc[:,3:6]
 
 def KNN_experiment(X_train, y_train, X_test, y_test, distance_measure):
 
-    clf = KNeighborsTimeSeriesClassifier(distance=distance_measure, )
+    clf = KNeighborsTimeSeriesClassifier(distance=distance_measure)
 
 
     start = time.time()
@@ -64,9 +60,6 @@ print(KNN_experiment(X_train_acc, y_train, X_test_acc, y_test, "dtw"))
 print("********** gyro **********")
 print(KNN_experiment(X_train_gyro, y_train, X_test_gyro, y_test, "euclidean"))
 print(KNN_experiment(X_train_gyro, y_train, X_test_gyro, y_test, "dtw"))
-
-
-# print(X_train.iloc[:,1:2])
 
 print("********** accel X **********")
 print(KNN_experiment(X_train.iloc[:,0:1], y_train, X_test.iloc[:,0:1], y_test, "euclidean"))
