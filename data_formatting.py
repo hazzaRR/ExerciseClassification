@@ -11,7 +11,6 @@ import pandas as pd
 import numpy as np
 
 CURRENT_PATH = os.getcwd()
-print(CURRENT_PATH)
 
 movements = ["benchpress", "deadlift", "squat"]
 rootdir = os.path.join(CURRENT_PATH, "rawData")
@@ -31,15 +30,13 @@ def trim_dataset(data):
 
 
 
-def combine_data(accel_data, gyro_data, movement, instanceNumber):
+
+def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath, normalise_data=True):
 
     """ create timestamps for data for a 10 second period with intervals of 100ms"""
     timestamps = np.arange(100, 10100, 100)
 
-
     data = {
-
-        'Timestamps (ms)': timestamps,
         'a_x': accel_data['X'],
         'a_y': accel_data['Y'],
         'a_z': accel_data['Z'],
@@ -51,16 +48,19 @@ def combine_data(accel_data, gyro_data, movement, instanceNumber):
 
     data_instance = pd.DataFrame(data)
 
-    filename = f'{movement}_instance_{instanceNumber}'
-    print(filename)
+    """ normalises data into the range 0 and 1 if option is selected"""
+    if normalise_data:
+        data_instance = (data_instance-data_instance.min())/(data_instance.max()-data_instance.min())
 
-    print(instanceNumber)
+    data_instance.insert(loc=0, column='Timestamps (ms)', value=timestamps)
 
-    data_instance.to_csv(f'./data_instance/{filename}.csv', index=False)
+
+    filename = f'{folderPath}/{movement}_instance_{instanceNumber}'
+
+    data_instance.to_csv(f'{filename}.csv', index=False)
 
 
 for movement in movements:
-    print(movement)
 
     folder_to_check = os.path.join(rootdir, movement)
 
@@ -79,7 +79,7 @@ for movement in movements:
             gyro_data = trim_dataset(gyro_data)
         
 
-            combine_data(accel_data, gyro_data, movement, instance_number)
+            combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/data/data_instance_normalised")
 
             instance_number+= 1
 

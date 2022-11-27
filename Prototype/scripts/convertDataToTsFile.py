@@ -9,20 +9,18 @@ import os
 from sktime.datasets._data_io import write_ndarray_to_tsfile
 
 
-def create_ts_file(test_split=False):   
-    CURRENT_PATH = os.getcwd()
+def create_ts_file(data_path, test_split=False):   
     data_array = []
     class_label_values = []
-    rootdir = os.path.join(CURRENT_PATH, "Prototype", "data", "data_instance")
 
 
-    for subdir, dirs, files in os.walk(rootdir):
+    for subdir, dirs, files in os.walk(data_path):
         for file in files:
             
             class_label = file.split('_')
             class_label_values.append(class_label[0])
 
-            data_instance = pd.read_csv(os.path.join(CURRENT_PATH, "Prototype", "data", "data_instance", file))
+            data_instance = pd.read_csv(os.path.join(data_path, file))
 
             data_instance = data_instance.drop(columns=['Timestamps (ms)'])
 
@@ -33,8 +31,6 @@ def create_ts_file(test_split=False):
 
     data_array = np.asarray(data_array)
     class_label_values = np.asarray(class_label_values)
-
-    print(np.shape(data_array))
 
     class_labels = set(class_label_values)
 
@@ -57,10 +53,6 @@ def create_ts_file(test_split=False):
         X_test = data_array[test_value_indexes]
         y_test = class_label_values[test_value_indexes]
 
-
-        print(y_train)
-        print(y_test)
-
         write_ndarray_to_tsfile(data=X_train, path=os.path.join(CURRENT_PATH, "Prototype", "data"), problem_name="Powerlift_movements", class_label=class_labels,
         class_value_list=y_train, equal_length=True, series_length=100, fold="_TRAIN")
 
@@ -71,4 +63,6 @@ def create_ts_file(test_split=False):
         class_value_list=class_label_values, equal_length=True, series_length=100)
 
 
-create_ts_file()
+CURRENT_PATH = os.getcwd()
+rootdir = os.path.join(CURRENT_PATH, "Prototype", "data", "data_instance")
+create_ts_file(data_path=rootdir, test_split=True)
