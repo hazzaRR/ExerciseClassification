@@ -13,7 +13,7 @@ def create_ts_file(test_split=False):
     CURRENT_PATH = os.getcwd()
     data_array = []
     class_label_values = []
-    rootdir = os.path.join(CURRENT_PATH, "data_instance")
+    rootdir = os.path.join(CURRENT_PATH, "Prototype", "data", "data_instance")
 
 
     for subdir, dirs, files in os.walk(rootdir):
@@ -22,7 +22,7 @@ def create_ts_file(test_split=False):
             class_label = file.split('_')
             class_label_values.append(class_label[0])
 
-            data_instance = pd.read_csv(os.path.join(CURRENT_PATH, "data_instance", file))
+            data_instance = pd.read_csv(os.path.join(CURRENT_PATH, "Prototype", "data", "data_instance", file))
 
             data_instance = data_instance.drop(columns=['Timestamps (ms)'])
 
