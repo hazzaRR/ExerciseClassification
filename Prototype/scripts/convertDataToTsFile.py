@@ -72,7 +72,7 @@ def main():
     rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")
     path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data")
 
-    create_ts_file(data_path=rootdir, path_to_save=path_to_save,  test_split=False)
+    create_ts_file(data_path=rootdir, path_to_save=path_to_save,  test_split=True)
 
 
 if __name__ == "__main__":
