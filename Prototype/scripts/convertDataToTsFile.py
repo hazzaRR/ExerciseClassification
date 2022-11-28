@@ -9,7 +9,7 @@ import os
 from sktime.datasets._data_io import write_ndarray_to_tsfile
 
 
-def create_ts_file(data_path, test_split=False):   
+def create_ts_file(data_path, path_to_save, test_split=False):   
     data_array = []
     class_label_values = []
 
@@ -53,16 +53,28 @@ def create_ts_file(data_path, test_split=False):
         X_test = data_array[test_value_indexes]
         y_test = class_label_values[test_value_indexes]
 
-        write_ndarray_to_tsfile(data=X_train, path=os.path.join(CURRENT_PATH, "Prototype", "data"), problem_name="Powerlift_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=X_train, path=path_to_save, problem_name="Powerlift_movements", class_label=class_labels,
         class_value_list=y_train, equal_length=True, series_length=100, fold="_TRAIN")
 
-        write_ndarray_to_tsfile(data=X_test, path=os.path.join(CURRENT_PATH, "Prototype", "data"), problem_name="Powerlift_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=X_test, path=path_to_save, problem_name="Powerlift_movements", class_label=class_labels,
         class_value_list=y_test, equal_length=True, series_length=100, fold="_TEST")
     else:
-        write_ndarray_to_tsfile(data=data_array, path=os.path.join(CURRENT_PATH, "Prototype", "data"), problem_name="Powerlift_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=data_array, path=path_to_save, problem_name="Powerlift_movements", class_label=class_labels,
         class_value_list=class_label_values, equal_length=True, series_length=100)
 
 
-CURRENT_PATH = os.getcwd()
-rootdir = os.path.join(CURRENT_PATH, "Prototype", "data", "data_instance")
-create_ts_file(data_path=rootdir, test_split=True)
+
+def main():
+    CURRENT_PATH = os.getcwd()
+    # rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_1", "data", "data_instance")
+    # path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_1", "data")
+
+    rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")
+    path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data")
+
+    create_ts_file(data_path=rootdir, path_to_save=path_to_save,  test_split=False)
+
+
+if __name__ == "__main__":
+    main()
+
