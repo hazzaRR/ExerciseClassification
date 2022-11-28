@@ -1,0 +1,11 @@
+Multivariate Results:
+ - Accelerometer and Gyroscope Accuracy = 1.0 and train time = 0.37955260276794434
+ - Accelerometer Accuracy = 1.0 and train time = 0.18865084648132324
+ - Gyroscope Accuracy = 0.875 and train time = 0.20183420181274414
+Univariate Results:
+ - Accelerometer X axis Accuracy = 0.8125 and train time = 0.07227277755737305
+ - Accelerometer Y axis Accuracy = 1.0 and train time = 0.06531405448913574
+ - Accelerometer Z axis Accuracy = 0.75 and train time = 0.06835389137268066
+ - Gyroscope X axis Accuracy = 0.875 and train time = 0.06682658195495605
+ - Gyroscope Y axis Accuracy = 0.625 and train time = 0.11474370956420898
+ - Gyroscope Z axis Accuracy = 0.9375 and train time = 0.07571601867675781
