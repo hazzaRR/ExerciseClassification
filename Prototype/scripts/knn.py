@@ -8,12 +8,12 @@ def KNN_experiment(X_train, y_train, X_test, y_test, distance_measure):
 
     clf = KNeighborsTimeSeriesClassifier(distance=distance_measure)
 
-
+    """ train classifier and calculate train time """
     start = time.time()
     clf.fit(X_train, y_train)
     end = time.time()
 
-
+    """ iterate through the classifiers predictions and compare them to actual class labels to get the accuracy of the classifier """
     predictions = clf.predict(X_test)
 
     count = 0

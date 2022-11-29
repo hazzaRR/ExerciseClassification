@@ -14,6 +14,7 @@ def create_ts_file(data_path, path_to_save, test_split=False):
     class_label_values = []
 
 
+    """ iterate through each data instance csv file and get the class labels and time series data """
     for subdir, dirs, files in os.walk(data_path):
         for file in files:
             
@@ -32,8 +33,10 @@ def create_ts_file(data_path, path_to_save, test_split=False):
     data_array = np.asarray(data_array)
     class_label_values = np.asarray(class_label_values)
 
+    """ get the unique class labels """
     class_labels = set(class_label_values)
 
+    """ if specified in parameters, split data and create test and train ts files"""
     if test_split == True:
         bp_train = np.arange(0,12,1)
         deadlift_train = np.arange(17,29,1)

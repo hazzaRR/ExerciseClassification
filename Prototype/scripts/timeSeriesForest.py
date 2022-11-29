@@ -10,12 +10,13 @@ def tsf_experiment_univariate(X_train_data, y_train_data, X_test_data, y_test_da
     """ builds a time series forest classifiers off of a single time series axis that it is passed in the parameters"""
     clf = TimeSeriesForestClassifier(n_estimators=n_estimators_value)
 
-
+    """ train classifier and calculate train time """
     start = time.time()
     clf.fit(X_train_data, y_train_data)
     end = time.time()
 
 
+    """ iterate through the classifiers predictions and compare them to actual class labels to get the accuracy of the classifier """
     predictions = clf.predict(X_test_data)
 
     count = 0
