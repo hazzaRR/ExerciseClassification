@@ -104,8 +104,11 @@ def main():
     """run prototype experiment on just raw sensor data (not normalised dataset)"""
     run_prototype_experiment("Prototype_1")
 
-    """run prototype experiment on normalised dataset"""
+    """run prototype experiment on normalised dataset 70:30 split"""
     run_prototype_experiment("Prototype_2")
+
+    """run prototype experiment on normalised dataset 50:50 split"""
+    run_prototype_experiment("Prototype_3")
 
 if __name__ == "__main__":
     main()
