@@ -79,7 +79,7 @@ for movement in movements:
             gyro_data = trim_dataset(gyro_data)
         
 
-            combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_1/data/data_instance")
+            combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_1/data/data_instance", normalise_data=False)
             combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_2/data/data_instance_normalised")
 
             instance_number+= 1

@@ -9,7 +9,7 @@ import os
 from sktime.datasets._data_io import write_ndarray_to_tsfile
 
 
-def create_ts_file(data_path, path_to_save, test_split=False):   
+def create_ts_file(data_path, path_to_save, test_split=False, split_50=True):   
     data_array = []
     class_label_values = []
 
@@ -36,18 +36,35 @@ def create_ts_file(data_path, path_to_save, test_split=False):
     """ get the unique class labels """
     class_labels = set(class_label_values)
 
+    print(len(class_label_values))
+
     """ if specified in parameters, split data and create test and train ts files"""
     if test_split == True:
-        bp_train = np.arange(0,12,1)
-        deadlift_train = np.arange(17,29,1)
-        squat_train = np.arange(33,45,1)
 
-        bp_test = np.arange(12,17,1)
-        deadlift_test = np.arange(29,33,1)
-        squat_test = np.arange(45,52,1)
+        if split_50 == True:
+            bp_train = np.arange(0,9,1)
+            deadlift_train = np.arange(17,27,1)
+            squat_train = np.arange(37,46,1)
 
-        train_value_indexes = np.concatenate((bp_train, deadlift_train, squat_train), axis=None)
-        test_value_indexes = np.concatenate((bp_test, deadlift_test, squat_test), axis=None)
+            bp_test = np.arange(9,17,1)
+            deadlift_test = np.arange(27,37,1)
+            squat_test = np.arange(46,56,1)
+
+            train_value_indexes = np.concatenate((bp_train, deadlift_train, squat_train), axis=None)
+            test_value_indexes = np.concatenate((bp_test, deadlift_test, squat_test), axis=None)
+
+
+        else:
+            bp_train = np.arange(0,12,1)
+            deadlift_train = np.arange(17,31,1)
+            squat_train = np.arange(37,49,1)
+
+            bp_test = np.arange(12,17,1)
+            deadlift_test = np.arange(31,37,1)
+            squat_test = np.arange(49,56,1)
+
+            train_value_indexes = np.concatenate((bp_train, deadlift_train, squat_train), axis=None)
+            test_value_indexes = np.concatenate((bp_test, deadlift_test, squat_test), axis=None)
 
 
         X_train = data_array[train_value_indexes]
@@ -72,10 +89,15 @@ def main():
     # rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_1", "data", "data_instance")
     # path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_1", "data")
 
-    rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")
-    path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data")
+    # rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")
+    # path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data")
 
-    create_ts_file(data_path=rootdir, path_to_save=path_to_save,  test_split=True)
+    rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")
+    path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_3", "data")
+
+
+
+    create_ts_file(data_path=rootdir, path_to_save=path_to_save,  test_split=True, split_50=True)
 
 
 if __name__ == "__main__":
