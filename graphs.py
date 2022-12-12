@@ -7,7 +7,7 @@ print(CURRENT_PATH)
 
 def displayGraphs(table, movement):
 
-    table = pd.read_csv(os.path.join(CURRENT_PATH, "Prototype", "Prototype_1", "data", "data_instance", table))
+    table = pd.read_csv(os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised", table))
 
     a_x = table['a_x']
     a_y = table['a_y']
@@ -17,6 +17,7 @@ def displayGraphs(table, movement):
     g_z = table['g_z']
     x = table['Timestamps (ms)']
 
+    plt.title(movement)
     fig, axs = plt.subplots(3, 2)
     axs[0, 0].plot(x,a_x)
     axs[0, 0].set_title('Accel X Axis')
@@ -46,7 +47,7 @@ def displayGraphs(table, movement):
 def main():
 
 
-    for subdir, dirs, files in os.walk(os.path.join(CURRENT_PATH, "Prototype", "Prototype_1", "data", "data_instance")):
+    for subdir, dirs, files in os.walk(os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")):
             for file in files:
                 movement = file.split('_')
                 print(movement)

@@ -10,12 +10,6 @@ import os
 import pandas as pd
 import numpy as np
 
-CURRENT_PATH = os.getcwd()
-
-movements = ["benchpress", "deadlift", "squat"]
-rootdir = os.path.join(CURRENT_PATH, "rawData")
-
-
 def trim_dataset(data):
     """ remove the first 5 seconds of the data recording to reduce noised caused by setting up the exercise"""
     data = data.drop(data.index[range(50)]).reset_index(drop=True)
@@ -48,7 +42,7 @@ def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath, no
 
     data_instance = pd.DataFrame(data)
 
-    """ normalises data into the range 0 and 1 if option is selected"""
+    """ normalises data into the range 0 and 1 if option if selected """
     if normalise_data:
         data_instance = (data_instance-data_instance.min())/(data_instance.max()-data_instance.min())
 
@@ -60,27 +54,39 @@ def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath, no
     data_instance.to_csv(f'{filename}.csv', index=False)
 
 
-for movement in movements:
 
-    folder_to_check = os.path.join(rootdir, movement)
+def main():
+    CURRENT_PATH = os.getcwd()
 
-    for subdir, dirs, files in os.walk(folder_to_check):
+    movements = ["benchpress", "deadlift", "squat"]
+    rootdir = os.path.join(CURRENT_PATH, "rawData")
 
-        instance_number = 1
+    """ iterate through different movement subfolders"""
+    for movement in movements:
 
-        for name in dirs:
+        folder_to_check = os.path.join(rootdir, movement)
+
+        for subdir, dirs, files in os.walk(folder_to_check):
+
+            instance_number = 1
+
+            for name in dirs:
+                
+                currentfolder = os.path.join(folder_to_check, name)
+                
+                accel_data = pd.read_csv(os.path.join(currentfolder, 'Accelerometer.csv'))
+                gyro_data = pd.read_csv(os.path.join(currentfolder, 'Gyroscope.csv'))
+
+                accel_data = trim_dataset(accel_data)
+                gyro_data = trim_dataset(gyro_data)
             
-            currentfolder = os.path.join(folder_to_check, name)
 
-            accel_data = pd.read_csv(os.path.join(currentfolder, 'Accelerometer.csv'))
-            gyro_data = pd.read_csv(os.path.join(currentfolder, 'Gyroscope.csv'))
+                combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_1/data/data_instance", normalise_data=False)
+                combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_2/data/data_instance_normalised")
 
-            accel_data = trim_dataset(accel_data)
-            gyro_data = trim_dataset(gyro_data)
-        
+                instance_number+= 1
 
-            combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_1/data/data_instance", normalise_data=False)
-            combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_2/data/data_instance_normalised")
 
-            instance_number+= 1
+if __name__ == "__main__":
+    main()
 
