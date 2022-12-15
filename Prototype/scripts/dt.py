@@ -7,9 +7,7 @@ import numpy as np
 import time
 import pandas as pd
 
-def dt_experiment(X_train, y_train, X_test, y_test):
-
-    clf = SVC()
+def sk_experiment(X_train, y_train, X_test, y_test, clf):
 
     """ train classifier and calculate train time """
     start = time.time()
@@ -50,16 +48,21 @@ def main():
     df = pd.DataFrame(hey)
 
     print(np.shape(X_train))
-
-
     # print(df)
 
+    svc_clf = SVC()
+    dt_clf = DecisionTreeClassifier(random_state=1);
+    nb_clf = GaussianNB()
 
+    accel_x_acc, accel_x_time = sk_experiment(X_train[:,0:100], y_train, X_test[:,0:100], y_test, dt_clf)
+    print(accel_x_acc, accel_x_time)
 
-
-    accel_x_acc, accel_x_time = dt_experiment(X_train[:,0:100], y_train, X_test[:,0:100], y_test)
-
-    print(accel_x_acc)
+    accel_x_acc, accel_x_time = sk_experiment(X_train, y_train, X_test, y_test, svc_clf)
+    print(accel_x_acc, accel_x_time)
+    accel_x_acc, accel_x_time = sk_experiment(X_train, y_train, X_test, y_test, dt_clf)
+    print(accel_x_acc, accel_x_time)
+    accel_x_acc, accel_x_time = sk_experiment(X_train, y_train, X_test, y_test, nb_clf)
+    print(accel_x_acc, accel_x_time)
 
 if __name__ == "__main__":
     main()

@@ -59,7 +59,7 @@ def main():
     CURRENT_PATH = os.getcwd()
 
     movements = ["benchpress", "deadlift", "squat"]
-    rootdir = os.path.join(CURRENT_PATH, "rawData")
+    rootdir = os.path.join(CURRENT_PATH, "Prototype", "rawData")
 
     """ iterate through different movement subfolders"""
     for movement in movements:
