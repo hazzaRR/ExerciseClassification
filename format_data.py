@@ -10,9 +10,17 @@ import os
 import pandas as pd
 import numpy as np
 
-def trim_dataset(data):
-    """ remove the first 5 seconds of the data recording to reduce noised caused by setting up the exercise"""
-    data = data.drop(data.index[range(50)]).reset_index(drop=True)
+def trim_dataset(data, movement):
+
+    if movement in ['benchpress', 'squat', 'deadlift', 'militarypress']:
+        """ remove the first 5 seconds of the data recording to reduce noised caused by setting up the exercise"""
+        data = data.drop(data.index[range(50)]).reset_index(drop=True)
+        print(movement, "5")
+    else:
+        """ remove the first 3 seconds of the data recording to reduce noised caused by setting up the exercise"""
+        data = data.drop(data.index[range(30)]).reset_index(drop=True)
+        print(movement, "3")
+
 
 
     """extract 10 seconds of the data and then return this as a data instance"""
@@ -25,7 +33,7 @@ def trim_dataset(data):
 
 
 
-def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath, normalise_data=True):
+def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath):
 
     """ create timestamps for data for a 10 second period with intervals of 100ms"""
     timestamps = np.arange(100, 10100, 100)
@@ -43,8 +51,7 @@ def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath, no
     data_instance = pd.DataFrame(data)
 
     """ normalises data into the range 0 and 1 if option if selected """
-    if normalise_data:
-        data_instance = (data_instance-data_instance.min())/(data_instance.max()-data_instance.min())
+    data_instance = (data_instance-data_instance.min())/(data_instance.max()-data_instance.min())
 
     data_instance.insert(loc=0, column='Timestamps (ms)', value=timestamps)
 
@@ -58,34 +65,52 @@ def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath, no
 def main():
     CURRENT_PATH = os.getcwd()
 
-    movements = ["benchpress", "deadlift", "squat", "militaryPress"]
     rootdir = os.path.join(CURRENT_PATH, "Data", "rawData")
+    formatted_dir = os.path.join(CURRENT_PATH, "Data", "formatted_data")
 
-    """ iterate through different movement subfolders"""
-    for movement in movements:
+    for participant in os.listdir(rootdir):
 
-        folder_to_check = os.path.join(rootdir, movement)
+        """ create participant folder in formatted data instances if it doesn't exist yet """
+        if not os.path.exists(os.path.join(formatted_dir, participant)):
+            os.makedirs(os.path.join(formatted_dir, participant))
+        
+        participant_dir = os.path.join(formatted_dir, participant)
 
-        for subdir, dirs, files in os.walk(folder_to_check):
+        current_participant_dir = os.path.join(rootdir, participant)
 
+        for movement in os.listdir(current_participant_dir):
+            # print(movement)
+
+            """ create movement folder in formatted data instances if it doesn't exist yet """
+            if not os.path.exists(os.path.join(participant_dir, movement)):
+                os.makedirs(os.path.join(participant_dir, movement))
+        
+            movement_dir = os.path.join(participant_dir, movement)
+
+            current_movement_dir = os.path.join(current_participant_dir, movement)
             instance_number = 1
 
-            for name in dirs:
+            for recording in os.listdir(current_movement_dir):
                 
-                currentfolder = os.path.join(folder_to_check, name)
-                
-                accel_data = pd.read_csv(os.path.join(currentfolder, 'Accelerometer.csv'))
-                gyro_data = pd.read_csv(os.path.join(currentfolder, 'Gyroscope.csv'))
+                exercise_recordings = os.path.join(current_movement_dir, recording)                
+                accel_data = pd.read_csv(os.path.join(exercise_recordings, 'Accelerometer.csv'))
+                gyro_data = pd.read_csv(os.path.join(exercise_recordings, 'Gyroscope.csv'))
 
-                accel_data = trim_dataset(accel_data)
-                gyro_data = trim_dataset(gyro_data)
+
+                """ check recordings have same amount of data points, since one of the recording typically has one or two extra timestamps"""
+
+                if (len(gyro_data) != len(accel_data)):
+                    num_recordings = min(len(gyro_data), len(accel_data))
+                    accel_data = accel_data.iloc[:num_recordings:]
+                    gyro_data = gyro_data.iloc[:num_recordings:]
+
+                accel_data = trim_dataset(accel_data, movement)
+                gyro_data = trim_dataset(gyro_data, movement)
+
             
-
-                combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_1/data/data_instance", normalise_data=False)
-                combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_2/data/data_instance_normalised")
+                combine_data(accel_data, gyro_data, movement, instance_number, movement_dir)
 
                 instance_number+= 1
-
 
 if __name__ == "__main__":
     main()
