@@ -52,6 +52,7 @@ def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath):
 
     """ normalises data into the range 0 and 1 if option if selected """
     data_instance = (data_instance-data_instance.min())/(data_instance.max()-data_instance.min())
+    # data_instance = (data_instance - data_instance.mean()) / data_instance.std()
 
     data_instance.insert(loc=0, column='Timestamps (ms)', value=timestamps)
 

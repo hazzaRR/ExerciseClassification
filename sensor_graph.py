@@ -6,39 +6,64 @@ import os
 
 def produceGraph(filepath):
 
-    accel_data = pd.read_csv(os.path.join(filepath, 'Accelerometer.csv'))
+    data = pd.read_csv(os.path.join(filepath, 'Accelerometer.csv'))
     gyro_data = pd.read_csv(os.path.join(filepath, 'Gyroscope.csv'))
 
-    if (len(gyro_data) != len(accel_data)):
-        num_recordings = min(len(gyro_data), len(accel_data))
-        accel_data = accel_data.iloc[:num_recordings:]
+    if (len(gyro_data) != len(data)):
+        num_recordings = min(len(gyro_data), len(data))
+        data = data.iloc[:num_recordings:]
         gyro_data = gyro_data.iloc[:num_recordings:]
 
-    print(accel_data.columns)
+    print(data.columns)
 
-    timestamps = accel_data['Milliseconds']
+    timestamps = data['Milliseconds']
 
     print(timestamps)
 
     fig, ax = plt.subplots()
 
-    ax.plot(timestamps, accel_data['X'], '-', label="accel_X")
-    ax.plot(timestamps, accel_data['Y'], '-', label="accel_Y")
-    # ax.plot(timestamps, accel_data['Z'], '-', label="accel_Z")
-    # ax.plot(timestamps, gyro_data['X'], '-', label="gyro_X")
-    # ax.plot(timestamps, gyro_data['Y'], '-', label="gyro_Y")
-    # ax.plot(timestamps, gyro_data['Z'], '-', label="gyro_Z")
+    ax.plot(timestamps, data['X'], '-', label="accel_X")
+    ax.plot(timestamps, data['Y'], '-', label="accel_Y")
+    ax.plot(timestamps, data['Z'], '-', label="accel_Z")
+    ax.plot(timestamps, gyro_data['X'], '-', label="gyro_X")
+    ax.plot(timestamps, gyro_data['Y'], '-', label="gyro_Y")
+    ax.plot(timestamps, gyro_data['Z'], '-', label="gyro_Z")
+
+    ax.legend()
+    plt.show()
+
+
+def produceGraph_instance(filepath):
+
+    data = pd.read_csv(filepath)
+
+
+    timestamps = data['Timestamps (ms)']
+
+    print(timestamps)
+
+    fig, ax = plt.subplots()
+
+    # ax.plot(timestamps, data['a_x'], '-', label="accel_X")
+    ax.plot(timestamps, data['a_y'], '-', label="accel_Y")
+    # ax.plot(timestamps, data['a_z'], '-', label="accel_Z")
+    # ax.plot(timestamps, data['g_x'], '-', label="gyro_X")
+    ax.plot(timestamps, data['g_y'], '-', label="gyro_Y")
+    # ax.plot(timestamps, data['g_z'], '-', label="gyro_Z")
 
     ax.legend()
     plt.show()
 
 def main():
     CURRENT_PATH = os.getcwd()
-    filepath = os.path.join(CURRENT_PATH, 'Data', 'rawData', 'Harry', 'pullup', 'pullup_set11_2023-01-05')
+    # filepath = os.path.join(CURRENT_PATH, 'Data', 'rawData', 'Harry', 'pullup', 'pullup_set11_2023-01-05')
     # filepath = os.path.join(CURRENT_PATH, 'Data', 'rawData', 'Harry', 'pressup', 'pressup_set2_2022-12-28')
     # filepath = os.path.join(CURRENT_PATH, 'Data', 'rawData', 'Harry', 'situp', 'situp_set2_2022-12-28')
     # filepath = os.path.join(CURRENT_PATH, 'Data', 'rawData', 'Harry', 'benchpress', 'benchpress_set4_2022-11-04')
-    produceGraph(filepath)
+    # produceGraph(filepath)
+
+    filepath = os.path.join(CURRENT_PATH, 'Data', 'formatted_data', 'Harry', 'pullup', 'pullup_instance_6.csv')
+    produceGraph_instance(filepath)
 
 if __name__ == "__main__":
     main()
