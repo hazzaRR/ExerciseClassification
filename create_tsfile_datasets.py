@@ -10,7 +10,7 @@ from sktime.datasets._data_io import write_ndarray_to_tsfile
 import math
 
 
-def create_ts_file(path_to_save):   
+def create_ts_file(path_to_save, univariate_data_set=False, axis=None):   
     CURRENT_PATH = os.getcwd()
 
     rootdir = os.path.join(CURRENT_PATH, "Data", "formatted_data")
@@ -49,6 +49,23 @@ def create_ts_file(path_to_save):
                 data_instance = pd.read_csv(os.path.join(current_movement_dir, data_instance))
                 data_instance = data_instance.drop(columns=['Timestamps (ms)'])
                 data_instance = np.transpose(data_instance)
+                filename = participant
+
+                if univariate_data_set:
+                    data_instance = data_instance.loc[axis]
+
+                    gym_filename = f"{participant}_gym_movements_{axis[0].replace('_', '')}"
+                    weighted_filename = f"{participant}_bodyweight_movements_{axis[0].replace('_', '')}"
+                    bodyweight_filename = f"{participant}_weighted_movements_{axis[0].replace('_', '')}"
+
+                else:
+                    gym_filename = f"{participant}_gym_movements"
+                    weighted_filename = f"{participant}_bodyweight_movements"
+                    bodyweight_filename = f"{participant}_weighted_movements"
+
+
+                # print(data_instance)
+
 
                 if current_count < math.floor(movement_count/2):
                     X_train_gym.append(data_instance)
@@ -86,10 +103,10 @@ def create_ts_file(path_to_save):
         class_labels = set(np.concatenate((y_train_gym, y_test_gym), axis=None))
 
         """ create ts file for a 50:50 train and test split"""
-        write_ndarray_to_tsfile(data=X_train_gym, path=path_to_save, problem_name=f"{participant}_gym_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=X_train_gym, path=f'{path_to_save}/gym', problem_name=f"{gym_filename}", class_label=class_labels,
         class_value_list=y_train_gym, equal_length=True, series_length=100, fold="_TRAIN")
 
-        write_ndarray_to_tsfile(data=X_test_gym, path=path_to_save, problem_name=f"{participant}_gym_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=X_test_gym, path=f'{path_to_save}/gym', problem_name=f"{gym_filename}", class_label=class_labels,
         class_value_list=y_test_gym, equal_length=True, series_length=100, fold="_TEST")
 
 
@@ -103,10 +120,10 @@ def create_ts_file(path_to_save):
         class_labels = set(np.concatenate((y_train_weighted, y_test_weighted), axis=None))
 
         """ create ts file for a 50:50 train and test split"""
-        write_ndarray_to_tsfile(data=X_train_weighted, path=path_to_save, problem_name=f"{participant}_weighted_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=X_train_weighted, path=f'{path_to_save}/weighted', problem_name=f"{weighted_filename}", class_label=class_labels,
         class_value_list=y_train_weighted, equal_length=True, series_length=100, fold="_TRAIN")
 
-        write_ndarray_to_tsfile(data=X_test_weighted, path=path_to_save, problem_name=f"{participant}_weighted_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=X_test_weighted, path=f'{path_to_save}/weighted', problem_name=f"{weighted_filename}", class_label=class_labels,
         class_value_list=y_test_weighted, equal_length=True, series_length=100, fold="_TEST")
 
 
@@ -120,10 +137,10 @@ def create_ts_file(path_to_save):
         class_labels = set(np.concatenate((y_train_body_weight, y_test_body_weight), axis=None))
 
         """ create ts file for a 50:50 train and test split"""
-        write_ndarray_to_tsfile(data=X_train_body_weight, path=path_to_save, problem_name=f"{participant}_body_weight_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=X_train_body_weight, path=f'{path_to_save}/bodyweight', problem_name=f"{bodyweight_filename}", class_label=class_labels,
         class_value_list=y_train_body_weight, equal_length=True, series_length=100, fold="_TRAIN")
 
-        write_ndarray_to_tsfile(data=X_test_body_weight, path=path_to_save, problem_name=f"{participant}_body_weight_movements", class_label=class_labels,
+        write_ndarray_to_tsfile(data=X_test_body_weight, path=f'{path_to_save}/bodyweight', problem_name=f"{bodyweight_filename}", class_label=class_labels,
         class_value_list=y_test_body_weight, equal_length=True, series_length=100, fold="_TEST")
 
 def main():
@@ -135,9 +152,18 @@ def main():
 
 
 
+    create_ts_file(path_to_save=path_to_save)
 
+    create_ts_file(path_to_save=path_to_save, univariate_data_set=True, axis=['a_x'])
+    create_ts_file(path_to_save=path_to_save, univariate_data_set=True, axis=['a_y'])
+    create_ts_file(path_to_save=path_to_save, univariate_data_set=True, axis=['a_z'])
 
-    create_ts_file(path_to_save)
+    create_ts_file(path_to_save=path_to_save, univariate_data_set=True, axis=['g_x'])
+    create_ts_file(path_to_save=path_to_save, univariate_data_set=True, axis=['g_y'])
+    create_ts_file(path_to_save=path_to_save, univariate_data_set=True, axis=['g_z'])
+    
+    
+
 
 
 if __name__ == "__main__":

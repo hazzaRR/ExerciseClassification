@@ -41,15 +41,6 @@ def main():
         os.path.join(DATA_PATH, "Powerlift_movements/Powerlift_movements_TEST.ts"), return_data_type="numpy2d"
     )
 
-
-
-    print("****")
-    hey = X_train
-    df = pd.DataFrame(hey)
-
-    print(np.shape(X_train))
-    # print(df)
-
     svc_clf = SVC()
     dt_clf = DecisionTreeClassifier(random_state=1);
     nb_clf = GaussianNB()
