@@ -15,18 +15,18 @@ def main():
 
     """ load in train and test data """
     X_train, y_train = load_from_tsfile(
-        os.path.join(DATA_PATH, "gym/Harry_gym_movements/Harry_gym_movements_TRAIN.ts")
+        os.path.join(DATA_PATH, "gym/Harry_gym_movements_ay/Harry_gym_movements_ay_TRAIN.ts")
     )
     X_test, y_test = load_from_tsfile(
-        os.path.join(DATA_PATH, "gym/Harry_gym_movements/Harry_gym_movements_TEST.ts")
+        os.path.join(DATA_PATH, "gym/Harry_gym_movements_ay/Harry_gym_movements_ay_TEST.ts")
     )
 
-    knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
+    knn_classifier = KNeighborsTimeSeriesClassifier(distance='ed')
     rocket_clf = RocketClassifier(num_kernels=1000)
     hc2_clf = HIVECOTEV2()
 
 
-    print(time_series_experiment(X_train, y_train, X_test, y_test, hc2_clf))
+    print(time_series_experiment(X_train, y_train, X_test, y_test, knn_classifier))
 
 if __name__ == "__main__":
     main()
