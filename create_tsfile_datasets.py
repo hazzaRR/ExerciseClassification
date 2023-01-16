@@ -10,7 +10,7 @@ from sktime.datasets._data_io import write_ndarray_to_tsfile
 import math
 
 
-def create_ts_file(path_to_save, univariate_data_set=False, axis=None):   
+def create_ts_file(path_to_save, univariate_data_set=False, axis=None, multivariate_data='all'):   
     CURRENT_PATH = os.getcwd()
 
     rootdir = os.path.join(CURRENT_PATH, "Data", "formatted_data")
@@ -59,12 +59,22 @@ def create_ts_file(path_to_save, univariate_data_set=False, axis=None):
                     bodyweight_filename = f"{participant}_weighted_movements_{axis[0].replace('_', '')}"
 
                 else:
-                    gym_filename = f"{participant}_gym_movements"
-                    weighted_filename = f"{participant}_bodyweight_movements"
-                    bodyweight_filename = f"{participant}_weighted_movements"
 
+                    if multivariate_data == 'accel':
+                        data_instance = data_instance.loc[['a_x', 'a_y', 'a_z']]
+                        gym_filename = f"{participant}_gym_movements_accel"
+                        weighted_filename = f"{participant}_bodyweight_movements_accel"
+                        bodyweight_filename = f"{participant}_weighted_movements_accel"
+                    elif multivariate_data == 'gyro':
+                        data_instance = data_instance.loc[['g_x', 'g_y', 'g_z']]
+                        gym_filename = f"{participant}_gym_movements_gyro"
+                        weighted_filename = f"{participant}_bodyweight_movements_gyro"
+                        bodyweight_filename = f"{participant}_weighted_movements_gyro"
+                    else:
+                        gym_filename = f"{participant}_gym_movements"
+                        weighted_filename = f"{participant}_bodyweight_movements"
+                        bodyweight_filename = f"{participant}_weighted_movements"
 
-                # print(data_instance)
 
 
                 if current_count < math.floor(movement_count/2):
@@ -153,6 +163,9 @@ def main():
 
 
     create_ts_file(path_to_save=path_to_save)
+
+    create_ts_file(path_to_save=path_to_save, multivariate_data='accel')
+    create_ts_file(path_to_save=path_to_save, multivariate_data='gyro')
 
     create_ts_file(path_to_save=path_to_save, univariate_data_set=True, axis=['a_x'])
     create_ts_file(path_to_save=path_to_save, univariate_data_set=True, axis=['a_y'])
