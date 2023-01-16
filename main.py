@@ -15,10 +15,10 @@ def main():
 
     """ load in train and test data """
     X_train, y_train = load_from_tsfile(
-        os.path.join(DATA_PATH, "Harry_gym_movements/Harry_gym_movements_TRAIN.ts")
+        os.path.join(DATA_PATH, "gym/Harry_gym_movements/Harry_gym_movements_TRAIN.ts")
     )
     X_test, y_test = load_from_tsfile(
-        os.path.join(DATA_PATH, "Harry_gym_movements/Harry_gym_movements_TEST.ts")
+        os.path.join(DATA_PATH, "gym/Harry_gym_movements/Harry_gym_movements_TEST.ts")
     )
 
     knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
