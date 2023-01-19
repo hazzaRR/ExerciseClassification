@@ -4,6 +4,7 @@ from sktime.datasets import load_from_tsfile
 from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
 from sktime.classification.hybrid._hivecote_v2 import HIVECOTEV2
 from sktime.classification.kernel_based import RocketClassifier
+import numpy as np
 
 
 def main():
@@ -13,20 +14,30 @@ def main():
     DATA_PATH = os.path.join(CURRENT_PATH, "Data", "datasets")
     
 
+    # """ load in train and test data """
+    # X_train, y_train = load_from_tsfile(
+    #     os.path.join(DATA_PATH, "gym/Harry_gym_movements_accel/Harry_gym_movements_accel_TRAIN.ts")
+    # )
+    # X_test, y_test = load_from_tsfile(
+    #     os.path.join(DATA_PATH, "gym/Harry_gym_movements_accel/Harry_gym_movements_accel_TEST.ts")
+    # )
     """ load in train and test data """
     X_train, y_train = load_from_tsfile(
-        os.path.join(DATA_PATH, "gym/Harry_gym_movements_ay/Harry_gym_movements_ay_TRAIN.ts")
+        os.path.join(DATA_PATH, "gym/Harry_gym_movements_accel/Harry_gym_movements_accel_TRAIN.ts")
     )
     X_test, y_test = load_from_tsfile(
-        os.path.join(DATA_PATH, "gym/Harry_gym_movements_ay/Harry_gym_movements_ay_TEST.ts")
+        os.path.join(DATA_PATH, "gym/Harry_gym_movements_accel/Harry_gym_movements_accel_TEST.ts")
     )
 
-    knn_classifier = KNeighborsTimeSeriesClassifier(distance='ed')
+    knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
     rocket_clf = RocketClassifier(num_kernels=1000)
     hc2_clf = HIVECOTEV2()
 
+    print(str(rocket_clf))
 
-    print(time_series_experiment(X_train, y_train, X_test, y_test, knn_classifier))
+
+    print(time_series_experiment(X_train, y_train, X_test, y_test, knn_classifier, f"results/knn_gym_accel", 'Harry_gym_movements_gyro'))
+    
 
 if __name__ == "__main__":
     main()
