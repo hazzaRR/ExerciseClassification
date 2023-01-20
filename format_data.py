@@ -15,12 +15,9 @@ def trim_dataset(data, movement):
     if movement in ['benchpress', 'squat', 'deadlift', 'militarypress']:
         """ remove the first 5 seconds of the data recording to reduce noised caused by setting up the exercise"""
         data = data.drop(data.index[range(50)]).reset_index(drop=True)
-        print(movement, "5")
     else:
         """ remove the first 3 seconds of the data recording to reduce noised caused by setting up the exercise"""
         data = data.drop(data.index[range(30)]).reset_index(drop=True)
-        print(movement, "3")
-
 
 
     """extract 10 seconds of the data and then return this as a data instance"""
