@@ -17,6 +17,9 @@ def create_ts_file(path_to_save, univariate_data_set=False, axis=None, multivari
 
     for participant in os.listdir(rootdir):
 
+
+        """ getting different datasets"""
+
         X_train_gym = []
         y_train_gym = []        
         X_test_gym = []
@@ -55,25 +58,25 @@ def create_ts_file(path_to_save, univariate_data_set=False, axis=None, multivari
                     data_instance = data_instance.loc[axis]
 
                     gym_filename = f"{participant}_gym_movements_{axis[0].replace('_', '')}"
-                    weighted_filename = f"{participant}_bodyweight_movements_{axis[0].replace('_', '')}"
-                    bodyweight_filename = f"{participant}_weighted_movements_{axis[0].replace('_', '')}"
+                    weighted_filename = f"{participant}_weighted_movements_{axis[0].replace('_', '')}"
+                    bodyweight_filename = f"{participant}_bodyweight_movements_{axis[0].replace('_', '')}"
 
                 else:
 
                     if multivariate_data == 'accel':
                         data_instance = data_instance.loc[['a_x', 'a_y', 'a_z']]
                         gym_filename = f"{participant}_gym_movements_accel"
-                        weighted_filename = f"{participant}_bodyweight_movements_accel"
-                        bodyweight_filename = f"{participant}_weighted_movements_accel"
+                        weighted_filename = f"{participant}_weighted_movements_accel"
+                        bodyweight_filename = f"{participant}_bodyweight_movements_accel"
                     elif multivariate_data == 'gyro':
                         data_instance = data_instance.loc[['g_x', 'g_y', 'g_z']]
                         gym_filename = f"{participant}_gym_movements_gyro"
-                        weighted_filename = f"{participant}_bodyweight_movements_gyro"
-                        bodyweight_filename = f"{participant}_weighted_movements_gyro"
+                        weighted_filename = f"{participant}_weighted_movements_gyro"
+                        bodyweight_filename = f"{participant}_bodyweight_movements_gyro"
                     else:
                         gym_filename = f"{participant}_gym_movements"
-                        weighted_filename = f"{participant}_bodyweight_movements"
-                        bodyweight_filename = f"{participant}_weighted_movements"
+                        weighted_filename = f"{participant}_weighted_movements"
+                        bodyweight_filename = f"{participant}_bodyweight_movements"
 
 
 

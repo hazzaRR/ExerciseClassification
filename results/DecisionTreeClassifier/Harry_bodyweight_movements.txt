@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements
+Classifier: DecisionTreeClassifier()
+------------------------------------------------
+Train time: 0.008647441864013672
+Accuracy: 0.6122448979591837
+Balanced Accuracy: 0.6267806267806268
+Precision: 0.6373626373626373
+Recall: 0.6267806267806268
+F1 Score: 0.6240891724762693
+AUROC: 0.7149733480378643
+Confusion Matrix:
+ [[10  5  3]
+ [ 3 10  0]
+ [ 8  0 10]]
+------------------------------------------------

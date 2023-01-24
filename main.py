@@ -2,42 +2,92 @@ import os
 from experiment import time_series_experiment
 from sktime.datasets import load_from_tsfile
 from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
-from sktime.classification.hybrid._hivecote_v2 import HIVECOTEV2
 from sktime.classification.kernel_based import RocketClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.naive_bayes import GaussianNB
 import numpy as np
 
 
-def main():
-    print("hello world")
+def run_experiment(clf, sklearn_clf=False):
 
+    clf_name = str(clf).split('(')[0]
+
+    # print(clf_name)
     CURRENT_PATH = os.getcwd()
     DATA_PATH = os.path.join(CURRENT_PATH, "Data", "datasets")
-    
 
-    # """ load in train and test data """
-    # X_train, y_train = load_from_tsfile(
-    #     os.path.join(DATA_PATH, "gym/Harry_gym_movements_accel/Harry_gym_movements_accel_TRAIN.ts")
-    # )
-    # X_test, y_test = load_from_tsfile(
-    #     os.path.join(DATA_PATH, "gym/Harry_gym_movements_accel/Harry_gym_movements_accel_TEST.ts")
-    # )
-    """ load in train and test data """
-    X_train, y_train = load_from_tsfile(
-        os.path.join(DATA_PATH, "gym/Harry_gym_movements_accel/Harry_gym_movements_accel_TRAIN.ts")
-    )
-    X_test, y_test = load_from_tsfile(
-        os.path.join(DATA_PATH, "gym/Harry_gym_movements_accel/Harry_gym_movements_accel_TEST.ts")
-    )
+    RESULT_PATH = os.path.join(CURRENT_PATH, "results", clf_name)
 
-    knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
-    rocket_clf = RocketClassifier(num_kernels=1000)
-    hc2_clf = HIVECOTEV2()
-
-    print(str(rocket_clf))
+    if not os.path.exists(RESULT_PATH):
+        os.makedirs(RESULT_PATH)
 
 
-    print(time_series_experiment(X_train, y_train, X_test, y_test, knn_classifier, f"results/knn_gym_accel", 'Harry_gym_movements_gyro'))
-    
+    for dataset_type in os.listdir(DATA_PATH):
+        # print(dataset_type)
+
+        CURRENT_DATASET = os.path.join(DATA_PATH, dataset_type)
+
+        # print(CURRENT_DATASET)
+
+        for dataset in os.listdir(CURRENT_DATASET):
+
+            # print(dataset)
+
+            print(os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TRAIN.ts"))
+
+            """ load in train and test data """
+
+            if sklearn_clf:
+
+                X_train, y_train = load_from_tsfile(
+                os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TRAIN.ts"), return_data_type="numpy2d"
+                )
+                X_test, y_test = load_from_tsfile(
+                os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TEST.ts"), return_data_type="numpy2d"
+                )
+
+            else:
+
+                X_train, y_train = load_from_tsfile(
+                os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TRAIN.ts")
+                )
+                X_test, y_test = load_from_tsfile(
+                    os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TEST.ts")
+                )
+
+            # print(X_train)
+            print(time_series_experiment(X_train, y_train, X_test, y_test, clf, f"results/{clf_name}/{dataset}", dataset))
+
+def main() :
+
+    CURRENT_PATH = os.getcwd()
+    RESULT_PATH = os.path.join(CURRENT_PATH, "results")
+    if not os.path.exists(RESULT_PATH):
+        os.makedirs(RESULT_PATH)
+
+    # knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
+    # run_experiment(clf=knn_classifier)
+
+    # rocket_classifier = RocketClassifier(num_kernels=1000)
+    # run_experiment(clf=rocket_classifier)
+
+    # dt_classifier = DecisionTreeClassifier()
+    # run_experiment(clf=dt_classifier, sklearn_clf=True)
+
+    # nb_classifier = GaussianNB()
+    # run_experiment(clf=nb_classifier, sklearn_clf=True)
+
+    # ada_classifier = AdaBoostClassifier()
+    # run_experiment(clf=ada_classifier, sklearn_clf=True)
+
+    # mlp_classifier = MLPClassifier()
+    # run_experiment(clf=mlp_classifier, sklearn_clf=True)
+
+    # rf_classifier = RandomForestClassifier()
+    # run_experiment(clf=rf_classifier, sklearn_clf=True)
+
 
 if __name__ == "__main__":
     main()

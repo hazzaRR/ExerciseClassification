@@ -1,0 +1,18 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_weighted_movements_ay
+Classifier: MLPClassifier()
+------------------------------------------------
+Train time: 0.09688687324523926
+Accuracy: 0.5128205128205128
+Balanced Accuracy: 0.5125
+Precision: 0.4984941045796309
+Recall: 0.5125
+F1 Score: 0.5040741961473668
+AUROC: 0.7556992337164751
+Confusion Matrix:
+ [[ 5  5  7  3]
+ [ 1 12  1  6]
+ [ 5  0 14  1]
+ [ 5  4  0  9]]
+------------------------------------------------

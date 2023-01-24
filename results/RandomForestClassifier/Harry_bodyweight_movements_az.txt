@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_az
+Classifier: RandomForestClassifier()
+------------------------------------------------
+Train time: 0.09534239768981934
+Accuracy: 0.5306122448979592
+Balanced Accuracy: 0.50997150997151
+Precision: 0.4978609625668449
+Recall: 0.50997150997151
+F1 Score: 0.49927536231884045
+AUROC: 0.7911382225898356
+Confusion Matrix:
+ [[ 7  6  5]
+ [ 7  4  2]
+ [ 3  0 15]]
+------------------------------------------------

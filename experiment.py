@@ -47,7 +47,7 @@ def time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, data
     return accuracy, train_time, cm, bal_accuracy
 
 
-def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use):
+def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use, filepath, dataset_name):
 
     rows, cols = np.shape(X_train)
 
@@ -65,7 +65,7 @@ def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use):
     estimators=classifiersToEnsemble)
 
 
-    accuracy, train_time, confusion_matrix, bal_accuracy = time_series_experiment(X_train, y_train, X_test, y_test, clf)
+    accuracy, train_time, confusion_matrix, bal_accuracy = time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, dataset_name)
 
 
     return accuracy, train_time, confusion_matrix, bal_accuracy

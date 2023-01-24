@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_gyro
+Classifier: GaussianNB()
+------------------------------------------------
+Train time: 0.0
+Accuracy: 0.673469387755102
+Balanced Accuracy: 0.6823361823361823
+Precision: 0.7509157509157509
+Recall: 0.6823361823361823
+F1 Score: 0.6812570145903479
+AUROC: 0.8709792298501977
+Confusion Matrix:
+ [[14  4  0]
+ [ 3 10  0]
+ [ 9  0  9]]
+------------------------------------------------

@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_gz
+Classifier: MLPClassifier()
+------------------------------------------------
+Train time: 0.08082318305969238
+Accuracy: 0.8163265306122449
+Balanced Accuracy: 0.8333333333333334
+Precision: 0.8262844611528822
+Recall: 0.8333333333333334
+F1 Score: 0.8149509803921569
+AUROC: 0.9307968017645436
+Confusion Matrix:
+ [[12  5  1]
+ [ 0 13  0]
+ [ 2  1 15]]
+------------------------------------------------

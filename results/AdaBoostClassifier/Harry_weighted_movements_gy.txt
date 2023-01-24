@@ -1,0 +1,18 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_weighted_movements_gy
+Classifier: AdaBoostClassifier()
+------------------------------------------------
+Train time: 0.05637502670288086
+Accuracy: 0.3076923076923077
+Balanced Accuracy: 0.3111111111111111
+Precision: 0.31755744255744256
+Recall: 0.3111111111111111
+F1 Score: 0.3038741618201888
+AUROC: 0.5820801404853129
+Confusion Matrix:
+ [[5 9 2 4]
+ [6 8 1 5]
+ [9 4 3 4]
+ [6 1 3 8]]
+------------------------------------------------

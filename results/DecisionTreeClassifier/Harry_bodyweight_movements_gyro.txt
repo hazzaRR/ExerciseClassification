@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_gyro
+Classifier: DecisionTreeClassifier()
+------------------------------------------------
+Train time: 0.004103183746337891
+Accuracy: 0.7551020408163265
+Balanced Accuracy: 0.7635327635327637
+Precision: 0.7778846153846154
+Recall: 0.7635327635327637
+F1 Score: 0.752899009065992
+AUROC: 0.8239706828416505
+Confusion Matrix:
+ [[11  7  0]
+ [ 1 11  1]
+ [ 1  2 15]]
+------------------------------------------------

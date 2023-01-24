@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_accel
+Classifier: GaussianNB()
+------------------------------------------------
+Train time: 0.0
+Accuracy: 0.7551020408163265
+Balanced Accuracy: 0.7706552706552706
+Precision: 0.8434065934065934
+Recall: 0.7706552706552706
+F1 Score: 0.7591973244147158
+AUROC: 0.9149434794596085
+Confusion Matrix:
+ [[17  1  0]
+ [ 1 12  0]
+ [10  0  8]]
+------------------------------------------------

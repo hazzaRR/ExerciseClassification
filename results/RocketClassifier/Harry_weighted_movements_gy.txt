@@ -1,0 +1,18 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_weighted_movements_gy
+Classifier: RocketClassifier(num_kernels=1000)
+------------------------------------------------
+Train time: 0.20575284957885742
+Accuracy: 0.8846153846153846
+Balanced Accuracy: 0.8847222222222222
+Precision: 0.8889268626110731
+Recall: 0.8847222222222222
+F1 Score: 0.8852092431719405
+AUROC: 0.9229645593869731
+Confusion Matrix:
+ [[15  3  2  0]
+ [ 2 18  0  0]
+ [ 0  0 20  0]
+ [ 2  0  0 16]]
+------------------------------------------------
