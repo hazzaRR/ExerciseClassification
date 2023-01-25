@@ -1,5 +1,6 @@
 import os
 from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
+from sktime.classification.interval_based import TimeSeriesForestClassifier
 from sktime.classification.compose import ColumnEnsembleClassifier
 from sktime.datasets import load_from_tsfile
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score
@@ -53,26 +54,51 @@ def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use, filepa
 
     classifiersToEnsemble = []
 
-    for i in range(cols):
-        clfName = "clf" + str(i)
+    print(cols)
+
+    if cols == 1:
+
         clf = clf_to_use
-        col = [i]
 
-        clfTuple = (clfName, clf, col)
-        classifiersToEnsemble.append(clfTuple)
 
-    clf = ColumnEnsembleClassifier(
-    estimators=classifiersToEnsemble)
+    else:
+
+        for i in range(cols):
+            clfName = "clf" + str(i)
+            clf = clf_to_use
+            col = [i]
+
+            clfTuple = (clfName, clf, col)
+            classifiersToEnsemble.append(clfTuple)
+
+        clf = ColumnEnsembleClassifier(
+        estimators=classifiersToEnsemble)
 
 
     accuracy, train_time, confusion_matrix, bal_accuracy = time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, dataset_name)
 
 
-    return accuracy, train_time, confusion_matrix, bal_accuracy
+    # return accuracy, train_time, confusion_matrix, bal_accuracy
 
 
 def main():
     print("hello world")
+
+    CURRENT_PATH = os.getcwd()
+
+    X_train, y_train = load_from_tsfile(
+    os.path.join(CURRENT_PATH, 'Data', 'datasets', 'gym', 'Harry_gym_movements',  f"Harry_gym_movements_TRAIN.ts"))
+    X_test, y_test = load_from_tsfile(
+    os.path.join(CURRENT_PATH, 'Data', 'datasets', 'gym', 'Harry_gym_movements',  f"Harry_gym_movements_TEST.ts"))
+
+
+    print(np.shape(X_train))
+
+    tsf_clf = TimeSeriesForestClassifier()
+
+    
+
+    col_ensemble_experiment(X_train, y_train, X_test, y_test, tsf_clf, './', 'harry')
 
 if __name__ == "__main__":
     main()
