@@ -82,9 +82,6 @@ def main() :
     # rocket_classifier = RocketClassifier(num_kernels=1000)
     # run_experiment(clf=rocket_classifier)
 
-    fp_classifier = FreshPRINCE()
-    run_experiment(clf=fp_classifier)
-
     # tsf_classifier = TimeSeriesForestClassifier()
     # run_experiment(clf=tsf_classifier, uni_ts_clf=True)
     
