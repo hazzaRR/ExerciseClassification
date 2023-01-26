@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements
+Classifier: KNeighborsClassifier()
+------------------------------------------------
+Train time: 0.007995843887329102
+Accuracy: 0.8979591836734694
+Balanced Accuracy: 0.9002849002849004
+Precision: 0.899749373433584
+Recall: 0.9002849002849004
+F1 Score: 0.8983100747806629
+AUROC: 0.9805164966455289
+Confusion Matrix:
+ [[16  2  0]
+ [ 1 12  0]
+ [ 2  0 16]]
+------------------------------------------------

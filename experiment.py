@@ -54,8 +54,6 @@ def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use, filepa
 
     classifiersToEnsemble = []
 
-    print(cols)
-
     if cols == 1:
 
         clf = clf_to_use

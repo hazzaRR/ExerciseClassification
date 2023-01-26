@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements_gx
 Classifier: TimeSeriesForestClassifier()
 ------------------------------------------------
-Train time: 0.6544883251190186
-Accuracy: 0.5897435897435898
-Balanced Accuracy: 0.588888888888889
-Precision: 0.5968678489702517
-Recall: 0.588888888888889
-F1 Score: 0.5916324669402645
-AUROC: 0.7867895913154535
+Train time: 0.6830766201019287
+Accuracy: 0.5384615384615384
+Balanced Accuracy: 0.5375
+Precision: 0.5477280156914024
+Recall: 0.5375
+F1 Score: 0.5393173928784394
+AUROC: 0.7844867496807152
 Confusion Matrix:
- [[11  2  5  2]
- [ 3 13  2  2]
- [ 4  2 12  2]
- [ 5  2  1 10]]
+ [[11  4  4  1]
+ [ 1 12  4  3]
+ [ 4  5 10  1]
+ [ 6  2  1  9]]
 ------------------------------------------------

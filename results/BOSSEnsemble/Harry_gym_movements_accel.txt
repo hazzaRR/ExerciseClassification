@@ -1,0 +1,23 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_gym_movements_accel
+Classifier: ColumnEnsembleClassifier(estimators=[('clf0', BOSSEnsemble(), [0]),
+                                     ('clf1', BOSSEnsemble(), [1]),
+                                     ('clf2', BOSSEnsemble(), [2])])
+------------------------------------------------
+Train time: 84.00417447090149
+Accuracy: 0.9133858267716536
+Balanced Accuracy: 0.9137362637362637
+Precision: 0.9373791621911922
+Recall: 0.9137362637362637
+F1 Score: 0.9135286240549398
+AUROC: 0.9969930345455511
+Confusion Matrix:
+ [[12  0  7  1  0  0  0]
+ [ 0 19  0  0  0  0  1]
+ [ 0  0 20  0  0  0  0]
+ [ 0  0  0 18  0  0  0]
+ [ 0  0  1  1 11  0  0]
+ [ 0  0  0  0  0 18  0]
+ [ 0  0  0  0  0  0 18]]
+------------------------------------------------

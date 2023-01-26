@@ -4,7 +4,10 @@ from sktime.datasets import load_from_tsfile
 from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
 from sktime.classification.interval_based import TimeSeriesForestClassifier
 from sktime.classification.kernel_based import RocketClassifier
+from sktime.classification.dictionary_based import BOSSEnsemble
+from sktime.classification.feature_based import FreshPRINCE
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.naive_bayes import GaussianNB
@@ -79,8 +82,14 @@ def main() :
     # rocket_classifier = RocketClassifier(num_kernels=1000)
     # run_experiment(clf=rocket_classifier)
 
-    tsf_classifier = TimeSeriesForestClassifier()
-    run_experiment(clf=tsf_classifier, uni_ts_clf=True)
+    fp_classifier = FreshPRINCE()
+    run_experiment(clf=fp_classifier)
+
+    # tsf_classifier = TimeSeriesForestClassifier()
+    # run_experiment(clf=tsf_classifier, uni_ts_clf=True)
+    
+    # boss_classifier = BOSSEnsemble()
+    # run_experiment(clf=boss_classifier, uni_ts_clf=True)
 
     # dt_classifier = DecisionTreeClassifier()
     # run_experiment(clf=dt_classifier, sklearn_clf=True)
@@ -96,6 +105,9 @@ def main() :
 
     # rf_classifier = RandomForestClassifier()
     # run_experiment(clf=rf_classifier, sklearn_clf=True)
+
+    # knn_classifier = KNeighborsClassifier()
+    # run_experiment(clf=knn_classifier, sklearn_clf=True)
 
 
 if __name__ == "__main__":

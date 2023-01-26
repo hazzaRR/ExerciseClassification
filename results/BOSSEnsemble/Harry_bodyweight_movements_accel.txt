@@ -1,0 +1,19 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_accel
+Classifier: ColumnEnsembleClassifier(estimators=[('clf0', BOSSEnsemble(), [0]),
+                                     ('clf1', BOSSEnsemble(), [1]),
+                                     ('clf2', BOSSEnsemble(), [2])])
+------------------------------------------------
+Train time: 20.295065879821777
+Accuracy: 1.0
+Balanced Accuracy: 1.0
+Precision: 1.0
+Recall: 1.0
+F1 Score: 1.0
+AUROC: 1.0
+Confusion Matrix:
+ [[18  0  0]
+ [ 0 13  0]
+ [ 0  0 18]]
+------------------------------------------------

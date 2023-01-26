@@ -8,15 +8,15 @@ Classifier: ColumnEnsembleClassifier(estimators=[('clf0', TimeSeriesForestClassi
                                      ('clf2', TimeSeriesForestClassifier(),
                                       [2])])
 ------------------------------------------------
-Train time: 1.6043751239776611
-Accuracy: 0.8979591836734694
-Balanced Accuracy: 0.886039886039886
-Precision: 0.8918128654970761
-Recall: 0.886039886039886
-F1 Score: 0.8882882882882882
-AUROC: 0.9849967833838802
+Train time: 1.5278451442718506
+Accuracy: 0.9183673469387755
+Balanced Accuracy: 0.9116809116809117
+Precision: 0.9136302294197032
+Recall: 0.9116809116809117
+F1 Score: 0.9121671121671122
+AUROC: 0.9878687620623104
 Confusion Matrix:
- [[16  2  0]
- [ 3 10  0]
- [ 0  0 18]]
+ [[17  1  0]
+ [ 2 11  0]
+ [ 0  1 17]]
 ------------------------------------------------

@@ -1,0 +1,18 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_weighted_movements_gyro
+Classifier: KNeighborsClassifier()
+------------------------------------------------
+Train time: 0.0
+Accuracy: 0.7435897435897436
+Balanced Accuracy: 0.75
+Precision: 0.7473076923076922
+Recall: 0.75
+F1 Score: 0.732029598308668
+AUROC: 0.9406848659003831
+Confusion Matrix:
+ [[10  2  4  4]
+ [ 0 18  0  2]
+ [ 3  4 12  1]
+ [ 0  0  0 18]]
+------------------------------------------------

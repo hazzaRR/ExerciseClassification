@@ -14,7 +14,7 @@ Classifier: ColumnEnsembleClassifier(estimators=[('clf0', TimeSeriesForestClassi
                                      ('clf5', TimeSeriesForestClassifier(),
                                       [5])])
 ------------------------------------------------
-Train time: 3.1095149517059326
+Train time: 2.9334187507629395
 Accuracy: 0.9795918367346939
 Balanced Accuracy: 0.9814814814814815
 Precision: 0.9824561403508771

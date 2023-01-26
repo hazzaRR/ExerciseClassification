@@ -14,18 +14,18 @@ Classifier: ColumnEnsembleClassifier(estimators=[('clf0', TimeSeriesForestClassi
                                      ('clf5', TimeSeriesForestClassifier(),
                                       [5])])
 ------------------------------------------------
-Train time: 7.480380296707153
-Accuracy: 0.9212598425196851
-Balanced Accuracy: 0.9162393162393162
-Precision: 0.9307928913192072
-Recall: 0.9162393162393162
-F1 Score: 0.9204052877639018
-AUROC: 0.9938347770848888
+Train time: 7.906012773513794
+Accuracy: 0.937007874015748
+Balanced Accuracy: 0.9313186813186813
+Precision: 0.9460990137681868
+Recall: 0.9313186813186813
+F1 Score: 0.9360126860505591
+AUROC: 0.9955423245388814
 Confusion Matrix:
- [[17  0  2  0  0  0  1]
+ [[18  0  2  0  0  0  0]
  [ 0 19  0  0  0  0  1]
  [ 2  0 18  0  0  0  0]
- [ 0  0  0 17  0  1  0]
+ [ 0  0  0 18  0  0  0]
  [ 1  0  2  0 10  0  0]
  [ 0  0  0  0  0 18  0]
  [ 0  0  0  0  0  0 18]]

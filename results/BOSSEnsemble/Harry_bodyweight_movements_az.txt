@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_az
+Classifier: BOSSEnsemble()
+------------------------------------------------
+Train time: 6.9062957763671875
+Accuracy: 0.6326530612244898
+Balanced Accuracy: 0.6168091168091169
+Precision: 0.6402298850574711
+Recall: 0.6168091168091169
+F1 Score: 0.5958988590810979
+AUROC: 0.9208367797077474
+Confusion Matrix:
+ [[ 7  4  7]
+ [ 3  6  4]
+ [ 0  0 18]]
+------------------------------------------------

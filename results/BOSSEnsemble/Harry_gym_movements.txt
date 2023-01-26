@@ -1,0 +1,26 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_gym_movements
+Classifier: ColumnEnsembleClassifier(estimators=[('clf0', BOSSEnsemble(), [0]),
+                                     ('clf1', BOSSEnsemble(), [1]),
+                                     ('clf2', BOSSEnsemble(), [2]),
+                                     ('clf3', BOSSEnsemble(), [3]),
+                                     ('clf4', BOSSEnsemble(), [4]),
+                                     ('clf5', BOSSEnsemble(), [5])])
+------------------------------------------------
+Train time: 168.4429326057434
+Accuracy: 0.9763779527559056
+Balanced Accuracy: 0.9785714285714285
+Precision: 0.9794941900205058
+Recall: 0.9785714285714285
+F1 Score: 0.9777532634675491
+AUROC: 0.9993810299563536
+Confusion Matrix:
+ [[17  0  2  1  0  0  0]
+ [ 0 20  0  0  0  0  0]
+ [ 0  0 20  0  0  0  0]
+ [ 0  0  0 18  0  0  0]
+ [ 0  0  0  0 13  0  0]
+ [ 0  0  0  0  0 18  0]
+ [ 0  0  0  0  0  0 18]]
+------------------------------------------------

@@ -1,0 +1,23 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_weighted_movements
+Classifier: ColumnEnsembleClassifier(estimators=[('clf0', BOSSEnsemble(), [0]),
+                                     ('clf1', BOSSEnsemble(), [1]),
+                                     ('clf2', BOSSEnsemble(), [2]),
+                                     ('clf3', BOSSEnsemble(), [3]),
+                                     ('clf4', BOSSEnsemble(), [4]),
+                                     ('clf5', BOSSEnsemble(), [5])])
+------------------------------------------------
+Train time: 85.32571053504944
+Accuracy: 1.0
+Balanced Accuracy: 1.0
+Precision: 1.0
+Recall: 1.0
+F1 Score: 1.0
+AUROC: 0.9995689655172414
+Confusion Matrix:
+ [[20  0  0  0]
+ [ 0 20  0  0]
+ [ 0  0 20  0]
+ [ 0  0  0 18]]
+------------------------------------------------
