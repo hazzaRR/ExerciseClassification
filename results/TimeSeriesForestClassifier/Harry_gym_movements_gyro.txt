@@ -1,0 +1,26 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_gym_movements_gyro
+Classifier: ColumnEnsembleClassifier(estimators=[('clf0', TimeSeriesForestClassifier(),
+                                      [0]),
+                                     ('clf1', TimeSeriesForestClassifier(),
+                                      [1]),
+                                     ('clf2', TimeSeriesForestClassifier(),
+                                      [2])])
+------------------------------------------------
+Train time: 3.7584316730499268
+Accuracy: 0.8267716535433071
+Balanced Accuracy: 0.8235042735042735
+Precision: 0.845981554677207
+Recall: 0.8235042735042735
+F1 Score: 0.8308852038500463
+AUROC: 0.9675052477177505
+Confusion Matrix:
+ [[15  0  3  2  0  0  0]
+ [ 0 18  0  0  0  0  2]
+ [ 6  0 14  0  0  0  0]
+ [ 1  0  2 15  0  0  0]
+ [ 1  0  2  1  9  0  0]
+ [ 0  0  1  0  1 16  0]
+ [ 0  0  0  0  0  0 18]]
+------------------------------------------------

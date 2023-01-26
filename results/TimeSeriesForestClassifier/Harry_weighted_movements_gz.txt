@@ -1,0 +1,18 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_weighted_movements_gz
+Classifier: TimeSeriesForestClassifier()
+------------------------------------------------
+Train time: 0.6103501319885254
+Accuracy: 0.8717948717948718
+Balanced Accuracy: 0.875
+Precision: 0.8830882352941176
+Recall: 0.875
+F1 Score: 0.873819992241045
+AUROC: 0.9765684865900384
+Confusion Matrix:
+ [[18  0  2  0]
+ [ 1 17  0  2]
+ [ 5  0 15  0]
+ [ 0  0  0 18]]
+------------------------------------------------

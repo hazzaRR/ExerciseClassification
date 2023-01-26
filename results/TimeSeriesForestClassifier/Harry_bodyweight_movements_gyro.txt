@@ -1,0 +1,22 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_gyro
+Classifier: ColumnEnsembleClassifier(estimators=[('clf0', TimeSeriesForestClassifier(),
+                                      [0]),
+                                     ('clf1', TimeSeriesForestClassifier(),
+                                      [1]),
+                                     ('clf2', TimeSeriesForestClassifier(),
+                                      [2])])
+------------------------------------------------
+Train time: 1.6043751239776611
+Accuracy: 0.8979591836734694
+Balanced Accuracy: 0.886039886039886
+Precision: 0.8918128654970761
+Recall: 0.886039886039886
+F1 Score: 0.8882882882882882
+AUROC: 0.9849967833838802
+Confusion Matrix:
+ [[16  2  0]
+ [ 3 10  0]
+ [ 0  0 18]]
+------------------------------------------------

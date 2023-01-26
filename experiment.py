@@ -78,7 +78,7 @@ def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use, filepa
     accuracy, train_time, confusion_matrix, bal_accuracy = time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, dataset_name)
 
 
-    # return accuracy, train_time, confusion_matrix, bal_accuracy
+    return accuracy, train_time, confusion_matrix, bal_accuracy
 
 
 def main():
@@ -96,7 +96,12 @@ def main():
 
     tsf_clf = TimeSeriesForestClassifier()
 
-    
+    col_ensemble_experiment(X_train, y_train, X_test, y_test, tsf_clf, './', 'harry')
+
+    X_train, y_train = load_from_tsfile(
+    os.path.join(CURRENT_PATH, 'Data', 'datasets', 'gym', 'Harry_gym_movements_ax',  f"Harry_gym_movements_ax_TRAIN.ts"))
+    X_test, y_test = load_from_tsfile(
+    os.path.join(CURRENT_PATH, 'Data', 'datasets', 'gym', 'Harry_gym_movements_Ax',  f"Harry_gym_movements_ax_TEST.ts"))
 
     col_ensemble_experiment(X_train, y_train, X_test, y_test, tsf_clf, './', 'harry')
 

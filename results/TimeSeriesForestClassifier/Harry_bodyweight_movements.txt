@@ -1,0 +1,28 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements
+Classifier: ColumnEnsembleClassifier(estimators=[('clf0', TimeSeriesForestClassifier(),
+                                      [0]),
+                                     ('clf1', TimeSeriesForestClassifier(),
+                                      [1]),
+                                     ('clf2', TimeSeriesForestClassifier(),
+                                      [2]),
+                                     ('clf3', TimeSeriesForestClassifier(),
+                                      [3]),
+                                     ('clf4', TimeSeriesForestClassifier(),
+                                      [4]),
+                                     ('clf5', TimeSeriesForestClassifier(),
+                                      [5])])
+------------------------------------------------
+Train time: 3.1095149517059326
+Accuracy: 0.9795918367346939
+Balanced Accuracy: 0.9814814814814815
+Precision: 0.9824561403508771
+Recall: 0.9814814814814815
+F1 Score: 0.9814671814671815
+AUROC: 1.0
+Confusion Matrix:
+ [[18  0  0]
+ [ 0 13  0]
+ [ 1  0 17]]
+------------------------------------------------

@@ -1,7 +1,8 @@
 import os
-from experiment import time_series_experiment
+from experiment import time_series_experiment, col_ensemble_experiment
 from sktime.datasets import load_from_tsfile
 from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
+from sktime.classification.interval_based import TimeSeriesForestClassifier
 from sktime.classification.kernel_based import RocketClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
@@ -10,7 +11,7 @@ from sklearn.naive_bayes import GaussianNB
 import numpy as np
 
 
-def run_experiment(clf, sklearn_clf=False):
+def run_experiment(clf, sklearn_clf=False, uni_ts_clf=False):
 
     clf_name = str(clf).split('(')[0]
 
@@ -49,6 +50,7 @@ def run_experiment(clf, sklearn_clf=False):
                 )
 
             else:
+                
 
                 X_train, y_train = load_from_tsfile(
                 os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TRAIN.ts")
@@ -57,8 +59,12 @@ def run_experiment(clf, sklearn_clf=False):
                     os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TEST.ts")
                 )
 
+            if uni_ts_clf:
+                print(col_ensemble_experiment(X_train, y_train, X_test, y_test, clf, f"results/{clf_name}/{dataset}", dataset))
+
+            else:
             # print(X_train)
-            print(time_series_experiment(X_train, y_train, X_test, y_test, clf, f"results/{clf_name}/{dataset}", dataset))
+                print(time_series_experiment(X_train, y_train, X_test, y_test, clf, f"results/{clf_name}/{dataset}", dataset))
 
 def main() :
 
@@ -72,6 +78,9 @@ def main() :
 
     # rocket_classifier = RocketClassifier(num_kernels=1000)
     # run_experiment(clf=rocket_classifier)
+
+    tsf_classifier = TimeSeriesForestClassifier()
+    run_experiment(clf=tsf_classifier, uni_ts_clf=True)
 
     # dt_classifier = DecisionTreeClassifier()
     # run_experiment(clf=dt_classifier, sklearn_clf=True)
