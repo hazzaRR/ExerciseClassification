@@ -4,15 +4,15 @@ Dataset: Harry_weighted_movements
 Classifier: GaussianNB()
 ------------------------------------------------
 Train time: 0.0
-Accuracy: 0.8333333333333334
-Balanced Accuracy: 0.8347222222222223
-Precision: 0.8907258064516129
-Recall: 0.8347222222222223
-F1 Score: 0.8364879822896902
-AUROC: 0.9476572477650064
+Accuracy: 0.825
+Balanced Accuracy: 0.8250000000000001
+Precision: 0.8769100169779286
+Recall: 0.8250000000000001
+F1 Score: 0.8252323261810928
+AUROC: 0.9490624999999999
 Confusion Matrix:
  [[19  1  0  0]
- [ 1 19  0  0]
+ [ 1 18  0  1]
  [ 9  0 11  0]
- [ 2  0  0 16]]
+ [ 2  0  0 18]]
 ------------------------------------------------

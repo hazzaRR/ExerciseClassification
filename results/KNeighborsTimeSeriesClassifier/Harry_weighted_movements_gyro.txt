@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements_gyro
 Classifier: KNeighborsTimeSeriesClassifier()
 ------------------------------------------------
-Train time: 0.2877812385559082
-Accuracy: 0.9358974358974359
+Train time: 0.2975032329559326
+Accuracy: 0.9375
 Balanced Accuracy: 0.9375
 Precision: 0.9379699248120301
 Recall: 0.9375
 F1 Score: 0.9374609130706691
-AUROC: 0.9579741379310345
+AUROC: 0.9583333333333333
 Confusion Matrix:
  [[17  0  3  0]
  [ 0 20  0  0]
  [ 2  0 18  0]
- [ 0  0  0 18]]
+ [ 0  0  0 20]]
 ------------------------------------------------

@@ -8,7 +8,7 @@ Classifier: ColumnEnsembleClassifier(estimators=[('clf0', BOSSEnsemble(), [0]),
                                      ('clf4', BOSSEnsemble(), [4]),
                                      ('clf5', BOSSEnsemble(), [5])])
 ------------------------------------------------
-Train time: 43.40377688407898
+Train time: 56.6669704914093
 Accuracy: 1.0
 Balanced Accuracy: 1.0
 Precision: 1.0
@@ -16,7 +16,7 @@ Recall: 1.0
 F1 Score: 1.0
 AUROC: 1.0
 Confusion Matrix:
- [[18  0  0]
- [ 0 13  0]
- [ 0  0 18]]
+ [[20  0  0]
+ [ 0 15  0]
+ [ 0  0 20]]
 ------------------------------------------------

@@ -4,15 +4,15 @@ Dataset: Harry_weighted_movements_gyro
 Classifier: GaussianNB()
 ------------------------------------------------
 Train time: 0.0
-Accuracy: 0.6666666666666666
-Balanced Accuracy: 0.6680555555555555
-Precision: 0.744212962962963
-Recall: 0.6680555555555555
-F1 Score: 0.6894959425087812
-AUROC: 0.8704581736909323
+Accuracy: 0.6625
+Balanced Accuracy: 0.6625
+Precision: 0.7396296296296296
+Recall: 0.6625
+F1 Score: 0.6829230983173411
+AUROC: 0.8766666666666667
 Confusion Matrix:
  [[14  0  6  0]
  [ 2 14  4  0]
  [ 9  0 11  0]
- [ 2  0  3 13]]
+ [ 2  0  4 14]]
 ------------------------------------------------

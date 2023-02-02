@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_gym_movements
 Classifier: RocketClassifier(num_kernels=1000)
 ------------------------------------------------
-Train time: 1.3352723121643066
+Train time: 1.457204818725586
 Accuracy: 1.0
 Balanced Accuracy: 1.0
 Precision: 1.0
@@ -14,8 +14,8 @@ Confusion Matrix:
  [[20  0  0  0  0  0  0]
  [ 0 20  0  0  0  0  0]
  [ 0  0 20  0  0  0  0]
- [ 0  0  0 18  0  0  0]
- [ 0  0  0  0 13  0  0]
- [ 0  0  0  0  0 18  0]
- [ 0  0  0  0  0  0 18]]
+ [ 0  0  0 20  0  0  0]
+ [ 0  0  0  0 15  0  0]
+ [ 0  0  0  0  0 20  0]
+ [ 0  0  0  0  0  0 20]]
 ------------------------------------------------

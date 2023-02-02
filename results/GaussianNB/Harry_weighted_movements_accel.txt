@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements_accel
 Classifier: GaussianNB()
 ------------------------------------------------
-Train time: 0.007999658584594727
-Accuracy: 0.7307692307692307
-Balanced Accuracy: 0.7305555555555556
-Precision: 0.7983333333333333
-Recall: 0.7305555555555556
-F1 Score: 0.7307885304659498
-AUROC: 0.9201428799489144
+Train time: 0.0
+Accuracy: 0.725
+Balanced Accuracy: 0.7250000000000001
+Precision: 0.791025641025641
+Recall: 0.7250000000000001
+F1 Score: 0.7224040920716113
+AUROC: 0.9224999999999999
 Confusion Matrix:
  [[16  3  1  0]
  [ 1 19  0  0]
  [11  0  9  0]
- [ 2  3  0 13]]
+ [ 2  4  0 14]]
 ------------------------------------------------

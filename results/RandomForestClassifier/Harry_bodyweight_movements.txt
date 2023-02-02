@@ -3,15 +3,15 @@ Classifier Results
 Dataset: Harry_bodyweight_movements
 Classifier: RandomForestClassifier()
 ------------------------------------------------
-Train time: 0.07921934127807617
-Accuracy: 0.8571428571428571
-Balanced Accuracy: 0.849002849002849
-Precision: 0.9066666666666666
-Recall: 0.849002849002849
-F1 Score: 0.8605915065722952
-AUROC: 0.9640658027754802
+Train time: 0.11139178276062012
+Accuracy: 0.8181818181818182
+Balanced Accuracy: 0.811111111111111
+Precision: 0.8266737076805727
+Recall: 0.811111111111111
+F1 Score: 0.8160689439759207
+AUROC: 0.9651587301587302
 Confusion Matrix:
- [[18  0  0]
- [ 3 10  0]
- [ 4  0 14]]
+ [[17  2  1]
+ [ 3 11  1]
+ [ 3  0 17]]
 ------------------------------------------------
