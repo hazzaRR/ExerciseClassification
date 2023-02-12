@@ -19,11 +19,16 @@ def predict():
     data = json.loads(request.data.decode('utf-8'))
 
     # print(np.shape(data['values']))
-    print(data['values'])
+    # print(data['values'])
 
-    prediction = rocket_classifier.predict(data['values'])
+    data = np.array(data)
+    print(data)
 
-    return prediction
+    prediction = rocket_classifier.predict(data)
+
+    print(prediction)
+
+    return prediction[0]
 
 
 
