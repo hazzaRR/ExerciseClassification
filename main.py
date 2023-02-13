@@ -5,7 +5,6 @@ from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
 from sktime.classification.interval_based import TimeSeriesForestClassifier
 from sktime.classification.kernel_based import RocketClassifier
 from sktime.classification.dictionary_based import BOSSEnsemble
-from sktime.classification.feature_based import FreshPRINCE
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
@@ -76,35 +75,35 @@ def main() :
     if not os.path.exists(RESULT_PATH):
         os.makedirs(RESULT_PATH)
 
-    knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
-    run_experiment(clf=knn_classifier)
+    # knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
+    # run_experiment(clf=knn_classifier)
 
     rocket_classifier = RocketClassifier(num_kernels=1000)
     run_experiment(clf=rocket_classifier)
 
-    tsf_classifier = TimeSeriesForestClassifier()
-    run_experiment(clf=tsf_classifier, uni_ts_clf=True)
+    # tsf_classifier = TimeSeriesForestClassifier()
+    # run_experiment(clf=tsf_classifier, uni_ts_clf=True)
     
-    boss_classifier = BOSSEnsemble()
-    run_experiment(clf=boss_classifier, uni_ts_clf=True)
+    # boss_classifier = BOSSEnsemble()
+    # run_experiment(clf=boss_classifier, uni_ts_clf=True)
 
-    dt_classifier = DecisionTreeClassifier()
-    run_experiment(clf=dt_classifier, sklearn_clf=True)
+    # dt_classifier = DecisionTreeClassifier()
+    # run_experiment(clf=dt_classifier, sklearn_clf=True)
 
-    nb_classifier = GaussianNB()
-    run_experiment(clf=nb_classifier, sklearn_clf=True)
+    # nb_classifier = GaussianNB()
+    # run_experiment(clf=nb_classifier, sklearn_clf=True)
 
-    ada_classifier = AdaBoostClassifier()
-    run_experiment(clf=ada_classifier, sklearn_clf=True)
+    # ada_classifier = AdaBoostClassifier()
+    # run_experiment(clf=ada_classifier, sklearn_clf=True)
 
-    mlp_classifier = MLPClassifier()
-    run_experiment(clf=mlp_classifier, sklearn_clf=True)
+    # mlp_classifier = MLPClassifier()
+    # run_experiment(clf=mlp_classifier, sklearn_clf=True)
 
-    rf_classifier = RandomForestClassifier()
-    run_experiment(clf=rf_classifier, sklearn_clf=True)
+    # rf_classifier = RandomForestClassifier()
+    # run_experiment(clf=rf_classifier, sklearn_clf=True)
 
-    knn_classifier = KNeighborsClassifier()
-    run_experiment(clf=knn_classifier, sklearn_clf=True)
+    # knn_classifier = KNeighborsClassifier()
+    # run_experiment(clf=knn_classifier, sklearn_clf=True)
 
 
 if __name__ == "__main__":

@@ -3,15 +3,15 @@ Classifier Results
 Dataset: Harry_bodyweight_movements
 Classifier: MLPClassifier()
 ------------------------------------------------
-Train time: 0.13812994956970215
-Accuracy: 0.8
-Balanced Accuracy: 0.7999999999999999
-Precision: 0.797270955165692
-Recall: 0.7999999999999999
-F1 Score: 0.7957305852042694
-AUROC: 0.9307936507936508
+Train time: 0.1510019302368164
+Accuracy: 0.85
+Balanced Accuracy: 0.85
+Precision: 0.8573607932875668
+Recall: 0.85
+F1 Score: 0.8512694975363274
+AUROC: 0.9550000000000001
 Confusion Matrix:
- [[14  6  0]
- [ 2 12  1]
+ [[15  5  0]
+ [ 2 18  0]
  [ 2  0 18]]
 ------------------------------------------------

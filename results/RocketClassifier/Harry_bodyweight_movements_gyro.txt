@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_gyro
 Classifier: RocketClassifier(num_kernels=1000)
 ------------------------------------------------
-Train time: 0.3850083351135254
+Train time: 0.37927699089050293
 Accuracy: 1.0
 Balanced Accuracy: 1.0
 Precision: 1.0
@@ -12,6 +12,6 @@ F1 Score: 1.0
 AUROC: 1.0
 Confusion Matrix:
  [[20  0  0]
- [ 0 15  0]
+ [ 0 20  0]
  [ 0  0 20]]
 ------------------------------------------------

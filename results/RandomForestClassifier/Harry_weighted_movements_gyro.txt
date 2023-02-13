@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements_gyro
 Classifier: RandomForestClassifier()
 ------------------------------------------------
-Train time: 0.1127462387084961
-Accuracy: 0.775
-Balanced Accuracy: 0.775
-Precision: 0.780047945951836
-Recall: 0.775
-F1 Score: 0.774670608476621
-AUROC: 0.9295833333333334
+Train time: 0.11420035362243652
+Accuracy: 0.8072289156626506
+Balanced Accuracy: 0.8081521739130435
+Precision: 0.8279528478057889
+Recall: 0.8081521739130435
+F1 Score: 0.8143973307672998
+AUROC: 0.9276958247066943
 Confusion Matrix:
- [[12  0  7  1]
- [ 1 17  1  1]
- [ 6  0 13  1]
- [ 0  0  0 20]]
+ [[18  1  4  0]
+ [ 3 16  0  1]
+ [ 6  0 14  0]
+ [ 1  0  0 19]]
 ------------------------------------------------

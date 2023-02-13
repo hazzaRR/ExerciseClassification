@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements
 Classifier: MLPClassifier()
 ------------------------------------------------
-Train time: 0.19864535331726074
-Accuracy: 0.8125
-Balanced Accuracy: 0.8125
-Precision: 0.8169384057971014
-Recall: 0.8125
-F1 Score: 0.8111063843196572
-AUROC: 0.9387500000000001
+Train time: 0.1553356647491455
+Accuracy: 0.8433734939759037
+Balanced Accuracy: 0.8423913043478262
+Precision: 0.8670566502463055
+Recall: 0.8423913043478262
+F1 Score: 0.8459841628959277
+AUROC: 0.9362491373360938
 Confusion Matrix:
- [[14  2  2  2]
- [ 0 18  0  2]
- [ 6  0 14  0]
+ [[20  2  1  0]
+ [ 1 18  0  1]
+ [ 7  0 13  0]
  [ 1  0  0 19]]
 ------------------------------------------------

@@ -3,19 +3,19 @@ Classifier Results
 Dataset: Harry_gym_movements
 Classifier: KNeighborsTimeSeriesClassifier()
 ------------------------------------------------
-Train time: 0.9308490753173828
-Accuracy: 0.9703703703703703
-Balanced Accuracy: 0.9714285714285714
-Precision: 0.9714285714285714
-Recall: 0.9714285714285714
-F1 Score: 0.9714285714285714
-AUROC: 0.9832298136645962
+Train time: 1.4764087200164795
+Accuracy: 0.9790209790209791
+Balanced Accuracy: 0.9795031055900622
+Precision: 0.9805764411027569
+Recall: 0.9795031055900622
+F1 Score: 0.9798924479775544
+AUROC: 0.9879803565116395
 Confusion Matrix:
- [[18  0  2  0  0  0  0]
+ [[22  0  1  0  0  0  0]
  [ 0 20  0  0  0  0  0]
  [ 2  0 18  0  0  0  0]
  [ 0  0  0 20  0  0  0]
- [ 0  0  0  0 15  0  0]
+ [ 0  0  0  0 20  0  0]
  [ 0  0  0  0  0 20  0]
  [ 0  0  0  0  0  0 20]]
 ------------------------------------------------

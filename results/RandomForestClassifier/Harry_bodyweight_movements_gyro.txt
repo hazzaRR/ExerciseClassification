@@ -3,15 +3,15 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_gyro
 Classifier: RandomForestClassifier()
 ------------------------------------------------
-Train time: 0.09009838104248047
-Accuracy: 0.9090909090909091
-Balanced Accuracy: 0.9055555555555556
-Precision: 0.9107997265892003
-Recall: 0.9055555555555556
-F1 Score: 0.9069091827712518
-AUROC: 0.9653968253968254
+Train time: 0.08555722236633301
+Accuracy: 0.8166666666666667
+Balanced Accuracy: 0.8166666666666668
+Precision: 0.821371610845295
+Recall: 0.8166666666666668
+F1 Score: 0.8180708180708182
+AUROC: 0.938125
 Confusion Matrix:
- [[17  1  2]
- [ 2 13  0]
- [ 0  0 20]]
+ [[15  4  1]
+ [ 4 16  0]
+ [ 0  2 18]]
 ------------------------------------------------

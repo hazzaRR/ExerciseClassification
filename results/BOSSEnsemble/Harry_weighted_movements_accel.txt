@@ -5,15 +5,15 @@ Classifier: ColumnEnsembleClassifier(estimators=[('clf0', BOSSEnsemble(), [0]),
                                      ('clf1', BOSSEnsemble(), [1]),
                                      ('clf2', BOSSEnsemble(), [2])])
 ------------------------------------------------
-Train time: 43.516040325164795
-Accuracy: 0.9
-Balanced Accuracy: 0.9
-Precision: 0.9232804232804233
-Recall: 0.9
-F1 Score: 0.8941683964711987
-AUROC: 0.9925
+Train time: 45.99430060386658
+Accuracy: 0.891566265060241
+Balanced Accuracy: 0.9021739130434783
+Precision: 0.9124579124579124
+Recall: 0.9021739130434783
+F1 Score: 0.8900503847312358
+AUROC: 0.9927536231884058
 Confusion Matrix:
- [[12  0  7  1]
+ [[14  0  7  2]
  [ 0 20  0  0]
  [ 0  0 20  0]
  [ 0  0  0 20]]

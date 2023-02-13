@@ -4,14 +4,14 @@ Dataset: Harry_bodyweight_movements_gyro
 Classifier: KNeighborsClassifier()
 ------------------------------------------------
 Train time: 0.0
-Accuracy: 0.8545454545454545
-Balanced Accuracy: 0.85
-Precision: 0.8586956521739131
-Recall: 0.85
-F1 Score: 0.8489344558361814
-AUROC: 0.9720238095238095
+Accuracy: 0.8666666666666667
+Balanced Accuracy: 0.8666666666666666
+Precision: 0.8785369220151829
+Recall: 0.8666666666666666
+F1 Score: 0.8672927039347914
+AUROC: 0.9585416666666666
 Confusion Matrix:
  [[16  3  1]
- [ 0 12  3]
+ [ 0 17  3]
  [ 0  1 19]]
 ------------------------------------------------
