@@ -22,7 +22,8 @@ def preprocess_data(data):
     instance3 = []
 
     for axis in data:
-        axis = (axis - np.mean(axis)) / np.std(axis)
+        # axis = (axis - np.mean(axis)) / np.std(axis)
+        axis = (axis-axis.min())/(axis.max()-axis.min())
 
         instance1.append(axis[000:100])
         instance2.append(axis[100:200])
