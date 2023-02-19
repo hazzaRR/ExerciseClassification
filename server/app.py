@@ -17,25 +17,27 @@ def preprocess_data(data):
 
     data = np.array(data)
 
-    instance1 = []
-    instance2 = []
-    instance3 = []
+    # instance1 = []
+    # instance2 = []
+    # instance3 = []
 
     for axis in data:
+        axis = axis[50:150]
         # axis = (axis - np.mean(axis)) / np.std(axis)
         axis = (axis-axis.min())/(axis.max()-axis.min())
 
-        instance1.append(axis[000:100])
-        instance2.append(axis[100:200])
-        instance3.append(axis[200:300])
+        # instance1.append(axis[000:100])
+        # instance2.append(axis[100:200])
+        # instance3.append(axis[200:300])
 
 
-    instance1 = np.array(instance1)
-    instance2 = np.array(instance2)
-    instance3 = np.array(instance3)
+    # instance1 = np.array(instance1)
+    # instance2 = np.array(instance2)
+    # instance3 = np.array(instance3)
 
 
-    data = np.array([instance1, instance2, instance3])
+    # data = np.array([instance1, instance2, instance3])
+    data = np.array([data])
 
     return data
 

@@ -47,7 +47,7 @@ def combine_data(accel_data, gyro_data, movement, instanceNumber, folderPath):
 
     data_instance = pd.DataFrame(data)
 
-    """ normalises data into the range 0 and 1 if option if selected """
+    """ normalises data into the range 0 and 1 if option """
     data_instance = (data_instance-data_instance.min())/(data_instance.max()-data_instance.min())
     # data_instance = (data_instance - data_instance.mean()) / data_instance.std()
 
