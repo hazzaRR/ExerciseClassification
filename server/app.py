@@ -61,6 +61,22 @@ def predict():
 
 
 
+@app.route('/test_predict', methods=['POST'])
+
+def test_predict():
+
+    data = request.get_json()
+
+    data = np.array(data)
+
+    prediction = rocket_classifier.predict(data)
+
+    print(prediction)
+
+    return prediction[0]
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

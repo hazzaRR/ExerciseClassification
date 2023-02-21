@@ -20,8 +20,8 @@ def main():
 
     headers = {'Content-type': 'application/json'}
 
-    response = requests.post('http://localhost:5000/predict', data=json.dumps(X_test[0:1].tolist()), headers=headers)
-    print(response)
+    response = requests.post('http://localhost:5000/test_predict', data=json.dumps(X_test[62:63].tolist()), headers=headers)
+    print(response.text)
 
 
     
