@@ -16,30 +16,19 @@ def preprocess_data(data):
     '''
 
     data = np.array(data)
+    normalised_data = []
 
-    # instance1 = []
-    # instance2 = []
-    # instance3 = []
 
     for axis in data:
         axis = axis[50:150]
         # axis = (axis - np.mean(axis)) / np.std(axis)
         axis = (axis-axis.min())/(axis.max()-axis.min())
-
-        # instance1.append(axis[000:100])
-        # instance2.append(axis[100:200])
-        # instance3.append(axis[200:300])
+        normalised_data.append(axis)
 
 
-    # instance1 = np.array(instance1)
-    # instance2 = np.array(instance2)
-    # instance3 = np.array(instance3)
+    normalised_data = np.array([normalised_data])
 
-
-    # data = np.array([instance1, instance2, instance3])
-    data = np.array([data])
-
-    return data
+    return normalised_data
 
 
 rocket_classifier = joblib.load(os.path.join(ROOT_DIR, 'rocket_model.joblib'))
@@ -51,9 +40,9 @@ def predict():
 
     data = request.get_json()
 
-    data = preprocess_data(data)
+    sensorData = preprocess_data(data)
 
-    prediction = rocket_classifier.predict(data)
+    prediction = rocket_classifier.predict(sensorData)
 
     print(prediction)
 
