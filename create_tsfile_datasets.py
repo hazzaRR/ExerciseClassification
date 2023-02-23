@@ -89,7 +89,7 @@ def create_ts_file(path_to_save, univariate_data_set=False, axis=None, multivari
                     if movement in ['benchpress', 'squat', 'deadlift', 'militarypress']:
                         X_train_weighted.append(data_instance)
                         y_train_weighted.append(class_label[0])
-                    else:
+                    elif movement in ['pullup', 'pressup', 'situp']:
                         X_train_body_weight.append(data_instance)
                         y_train_body_weight.append(class_label[0])
 
@@ -100,7 +100,7 @@ def create_ts_file(path_to_save, univariate_data_set=False, axis=None, multivari
                     if movement in ['benchpress', 'squat', 'deadlift', 'militarypress']:
                         X_test_weighted.append(data_instance)
                         y_test_weighted.append(class_label[0])
-                    else:
+                    elif movement in ['situp', 'pressup', 'pullup']:
                         X_test_body_weight.append(data_instance)
                         y_test_body_weight.append(class_label[0])
 
