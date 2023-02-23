@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements
 Classifier: RocketClassifier(num_kernels=1000)
 ------------------------------------------------
-Train time: 0.6365575790405273
+Train time: 0.7165968418121338
 Accuracy: 1.0
 Balanced Accuracy: 1.0
 Precision: 1.0

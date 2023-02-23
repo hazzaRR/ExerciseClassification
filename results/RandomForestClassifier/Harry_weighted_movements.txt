@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements
 Classifier: RandomForestClassifier()
 ------------------------------------------------
-Train time: 0.12598419189453125
-Accuracy: 0.7951807228915663
-Balanced Accuracy: 0.7956521739130434
-Precision: 0.8125
-Recall: 0.7956521739130434
-F1 Score: 0.7994915552870698
-AUROC: 0.9464156314699793
+Train time: 0.11013388633728027
+Accuracy: 0.797752808988764
+Balanced Accuracy: 0.8010869565217392
+Precision: 0.7961309523809523
+Recall: 0.8010869565217392
+F1 Score: 0.7975384544533479
+AUROC: 0.9558218050065876
 Confusion Matrix:
- [[18  0  4  1]
+ [[15  3  4  1]
  [ 0 18  0  2]
- [ 8  0 12  0]
- [ 2  0  0 18]]
+ [ 6  0 17  0]
+ [ 1  1  0 21]]
 ------------------------------------------------

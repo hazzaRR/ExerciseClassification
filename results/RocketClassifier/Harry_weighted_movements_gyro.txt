@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements_gyro
 Classifier: RocketClassifier(num_kernels=1000)
 ------------------------------------------------
-Train time: 0.48842835426330566
-Accuracy: 1.0
-Balanced Accuracy: 1.0
-Precision: 1.0
-Recall: 1.0
-F1 Score: 1.0
-AUROC: 1.0
+Train time: 0.5212578773498535
+Accuracy: 0.9887640449438202
+Balanced Accuracy: 0.9891304347826086
+Precision: 0.9895833333333334
+Recall: 0.9891304347826086
+F1 Score: 0.9891252955082742
+AUROC: 0.992671277997365
 Confusion Matrix:
  [[23  0  0  0]
  [ 0 20  0  0]
- [ 0  0 20  0]
- [ 0  0  0 20]]
+ [ 1  0 22  0]
+ [ 0  0  0 23]]
 ------------------------------------------------

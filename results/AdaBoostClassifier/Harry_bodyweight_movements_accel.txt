@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_accel
 Classifier: AdaBoostClassifier()
 ------------------------------------------------
-Train time: 0.09247469902038574
+Train time: 0.07496452331542969
 Accuracy: 0.5666666666666667
 Balanced Accuracy: 0.5666666666666667
 Precision: 0.5768633540372671

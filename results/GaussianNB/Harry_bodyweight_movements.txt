@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements
 Classifier: GaussianNB()
 ------------------------------------------------
-Train time: 0.0
+Train time: 0.0011210441589355469
 Accuracy: 0.8166666666666667
 Balanced Accuracy: 0.8166666666666668
 Precision: 0.840701754385965

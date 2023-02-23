@@ -4,15 +4,15 @@ Dataset: Harry_weighted_movements
 Classifier: KNeighborsClassifier()
 ------------------------------------------------
 Train time: 0.0
-Accuracy: 0.8674698795180723
-Balanced Accuracy: 0.8706521739130435
-Precision: 0.873641304347826
-Recall: 0.8706521739130435
-F1 Score: 0.8684919456814558
-AUROC: 0.9448585231193927
+Accuracy: 0.8314606741573034
+Balanced Accuracy: 0.8369565217391304
+Precision: 0.828322040278562
+Recall: 0.8369565217391304
+F1 Score: 0.8310429880197322
+AUROC: 0.9402420948616601
 Confusion Matrix:
- [[18  3  2  0]
+ [[15  3  5  0]
  [ 0 20  0  0]
- [ 6  0 14  0]
- [ 0  0  0 20]]
+ [ 7  0 16  0]
+ [ 0  0  0 23]]
 ------------------------------------------------

@@ -62,7 +62,7 @@ def main():
     # filepath = os.path.join(CURRENT_PATH, 'Data', 'rawData', 'Harry', 'benchpress', 'benchpress_set4_2022-11-04')
     # produceGraph(filepath)
 
-    filepath = os.path.join(CURRENT_PATH, 'Data', 'formatted_data', 'Harry', 'benchpress', 'benchpress_instance_38.csv')
+    filepath = os.path.join(CURRENT_PATH, 'Data', 'formatted_data', 'Harry', 'militarypress', 'militarypress_instance_38.csv')
     produceGraph_instance(filepath)
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements
 Classifier: KNeighborsClassifier()
 ------------------------------------------------
-Train time: 0.0010728836059570312
+Train time: 0.0
 Accuracy: 0.8666666666666667
 Balanced Accuracy: 0.8666666666666666
 Precision: 0.8664995822890559

@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_gyro
 Classifier: AdaBoostClassifier()
 ------------------------------------------------
-Train time: 0.07254648208618164
+Train time: 0.0787954330444336
 Accuracy: 0.5666666666666667
 Balanced Accuracy: 0.5666666666666667
 Precision: 0.5907407407407407

@@ -5,16 +5,16 @@ Classifier: ColumnEnsembleClassifier(estimators=[('clf0', BOSSEnsemble(), [0]),
                                      ('clf1', BOSSEnsemble(), [1]),
                                      ('clf2', BOSSEnsemble(), [2])])
 ------------------------------------------------
-Train time: 48.0401246547699
-Accuracy: 0.9518072289156626
-Balanced Accuracy: 0.954891304347826
-Precision: 0.9583333333333334
-Recall: 0.954891304347826
-F1 Score: 0.9534206103973546
+Train time: 46.95412826538086
+Accuracy: 0.9662921348314607
+Balanced Accuracy: 0.9673913043478262
+Precision: 0.9680952380952381
+Recall: 0.9673913043478262
+F1 Score: 0.9665665804385317
 AUROC: 1.0
 Confusion Matrix:
- [[20  0  3  0]
+ [[21  0  2  0]
  [ 0 20  0  0]
- [ 0  0 20  0]
- [ 0  0  1 19]]
+ [ 0  0 23  0]
+ [ 0  1  0 22]]
 ------------------------------------------------

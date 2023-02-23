@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_gyro
 Classifier: KNeighborsTimeSeriesClassifier()
 ------------------------------------------------
-Train time: 0.24858999252319336
+Train time: 0.22386384010314941
 Accuracy: 1.0
 Balanced Accuracy: 1.0
 Precision: 1.0

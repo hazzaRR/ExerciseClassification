@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements_gyro
 Classifier: GaussianNB()
 ------------------------------------------------
-Train time: 0.0
-Accuracy: 0.6506024096385542
-Balanced Accuracy: 0.6489130434782608
-Precision: 0.7331989247311828
-Recall: 0.6489130434782608
-F1 Score: 0.6735492176668647
-AUROC: 0.8789941338854382
+Train time: 0.0009930133819580078
+Accuracy: 0.6853932584269663
+Balanced Accuracy: 0.6858695652173912
+Precision: 0.7503787878787879
+Recall: 0.6858695652173912
+F1 Score: 0.7042933130699088
+AUROC: 0.8747035573122529
 Confusion Matrix:
- [[16  0  7  0]
- [ 3 14  3  0]
- [10  0 10  0]
- [ 2  0  4 14]]
+ [[14  0  9  0]
+ [ 2 14  4  0]
+ [ 7  0 16  0]
+ [ 1  1  4 17]]
 ------------------------------------------------

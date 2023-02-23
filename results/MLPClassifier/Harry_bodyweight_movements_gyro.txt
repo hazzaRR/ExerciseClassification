@@ -3,15 +3,15 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_gyro
 Classifier: MLPClassifier()
 ------------------------------------------------
-Train time: 0.10176634788513184
-Accuracy: 0.75
-Balanced Accuracy: 0.75
-Precision: 0.7505115089514067
-Recall: 0.75
-F1 Score: 0.7476115650534255
-AUROC: 0.8633333333333333
+Train time: 0.10501599311828613
+Accuracy: 0.8
+Balanced Accuracy: 0.7999999999999999
+Precision: 0.8038277511961721
+Recall: 0.7999999999999999
+F1 Score: 0.8009768009768011
+AUROC: 0.8983333333333333
 Confusion Matrix:
- [[12  7  1]
- [ 2 16  2]
- [ 3  0 17]]
+ [[14  6  0]
+ [ 3 16  1]
+ [ 2  0 18]]
 ------------------------------------------------

@@ -8,16 +8,16 @@ Classifier: ColumnEnsembleClassifier(estimators=[('clf0', BOSSEnsemble(), [0]),
                                      ('clf4', BOSSEnsemble(), [4]),
                                      ('clf5', BOSSEnsemble(), [5])])
 ------------------------------------------------
-Train time: 92.24831199645996
-Accuracy: 1.0
-Balanced Accuracy: 1.0
-Precision: 1.0
-Recall: 1.0
-F1 Score: 1.0
-AUROC: 0.9994565217391305
+Train time: 105.43431425094604
+Accuracy: 0.9662921348314607
+Balanced Accuracy: 0.967391304347826
+Precision: 0.9695833333333334
+Recall: 0.967391304347826
+F1 Score: 0.9668223239320468
+AUROC: 0.9996706192358367
 Confusion Matrix:
- [[23  0  0  0]
+ [[20  0  2  1]
  [ 0 20  0  0]
- [ 0  0 20  0]
- [ 0  0  0 20]]
+ [ 0  0 23  0]
+ [ 0  0  0 23]]
 ------------------------------------------------
