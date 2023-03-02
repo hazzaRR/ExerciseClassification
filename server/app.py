@@ -27,6 +27,7 @@ def preprocess_data(data):
 
 
     normalised_data = np.array([normalised_data])
+    print(normalised_data)
 
     return normalised_data
 
@@ -41,6 +42,8 @@ def predict():
     data = request.get_json()
 
     sensorData = preprocess_data(data)
+
+    print(sensorData)
 
     prediction = rocket_classifier.predict(sensorData)
 
