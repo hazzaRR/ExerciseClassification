@@ -75,14 +75,14 @@ def main() :
     if not os.path.exists(RESULT_PATH):
         os.makedirs(RESULT_PATH)
 
-    knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
-    run_experiment(clf=knn_classifier)
+    # knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
+    # run_experiment(clf=knn_classifier)
 
-    rocket_classifier = RocketClassifier(num_kernels=1000)
-    run_experiment(clf=rocket_classifier)
+    # rocket_classifier = RocketClassifier(num_kernels=1000)
+    # run_experiment(clf=rocket_classifier)
 
-    tsf_classifier = TimeSeriesForestClassifier()
-    run_experiment(clf=tsf_classifier, uni_ts_clf=True)
+    # tsf_classifier = TimeSeriesForestClassifier()
+    # run_experiment(clf=tsf_classifier, uni_ts_clf=True)
     
     boss_classifier = BOSSEnsemble()
     run_experiment(clf=boss_classifier, uni_ts_clf=True)

@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements
 Classifier: KNeighborsTimeSeriesClassifier()
 ------------------------------------------------
-Train time: 0.5845324993133545
-Accuracy: 0.9662921348314607
+Train time: 0.6123180389404297
+Accuracy: 0.967391304347826
 Balanced Accuracy: 0.967391304347826
 Precision: 0.9678030303030303
 Recall: 0.967391304347826
 F1 Score: 0.9673758865248226
-AUROC: 0.9780138339920948
+AUROC: 0.9782608695652173
 Confusion Matrix:
  [[22  0  1  0]
- [ 0 20  0  0]
+ [ 0 23  0  0]
  [ 2  0 21  0]
  [ 0  0  0 23]]
 ------------------------------------------------

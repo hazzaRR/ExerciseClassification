@@ -3,15 +3,15 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_accel
 Classifier: DecisionTreeClassifier()
 ------------------------------------------------
-Train time: 0.0028257369995117188
-Accuracy: 0.6333333333333333
-Balanced Accuracy: 0.6333333333333334
-Precision: 0.6403508771929824
-Recall: 0.6333333333333334
-F1 Score: 0.6361416361416362
-AUROC: 0.7250000000000001
+Train time: 0.0
+Accuracy: 0.6231884057971014
+Balanced Accuracy: 0.6231884057971014
+Precision: 0.6318897081673588
+Recall: 0.6231884057971014
+F1 Score: 0.6246790890269152
+AUROC: 0.7173913043478262
 Confusion Matrix:
- [[11  7  2]
- [ 8 11  1]
- [ 3  1 16]]
+ [[13  6  4]
+ [10 12  1]
+ [ 4  1 18]]
 ------------------------------------------------

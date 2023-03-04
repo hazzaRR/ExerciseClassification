@@ -4,14 +4,14 @@ Dataset: Harry_bodyweight_movements_accel
 Classifier: KNeighborsClassifier()
 ------------------------------------------------
 Train time: 0.0
-Accuracy: 0.95
-Balanced Accuracy: 0.9499999999999998
-Precision: 0.9515873015873016
-Recall: 0.9499999999999998
-F1 Score: 0.9503960808838858
-AUROC: 0.9858333333333333
+Accuracy: 0.9565217391304348
+Balanced Accuracy: 0.9565217391304349
+Precision: 0.9565217391304349
+Recall: 0.9565217391304349
+F1 Score: 0.9565217391304349
+AUROC: 0.9888153749212352
 Confusion Matrix:
- [[19  1  0]
- [ 1 19  0]
- [ 0  1 19]]
+ [[22  0  1]
+ [ 1 22  0]
+ [ 0  1 22]]
 ------------------------------------------------

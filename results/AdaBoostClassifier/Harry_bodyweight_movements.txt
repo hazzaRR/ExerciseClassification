@@ -3,15 +3,15 @@ Classifier Results
 Dataset: Harry_bodyweight_movements
 Classifier: AdaBoostClassifier()
 ------------------------------------------------
-Train time: 0.12955927848815918
-Accuracy: 0.6333333333333333
-Balanced Accuracy: 0.6333333333333333
-Precision: 0.6417493007882024
-Recall: 0.6333333333333333
-F1 Score: 0.63588906673362
-AUROC: 0.8058333333333335
+Train time: 0.15093421936035156
+Accuracy: 0.5797101449275363
+Balanced Accuracy: 0.5797101449275363
+Precision: 0.6616161616161617
+Recall: 0.5797101449275363
+F1 Score: 0.5892603850050658
+AUROC: 0.771266540642722
 Confusion Matrix:
- [[12  5  3]
- [ 6 12  2]
- [ 5  1 14]]
+ [[16  7  0]
+ [11 12  0]
+ [ 6  5 12]]
 ------------------------------------------------

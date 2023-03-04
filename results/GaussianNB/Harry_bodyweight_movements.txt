@@ -3,15 +3,15 @@ Classifier Results
 Dataset: Harry_bodyweight_movements
 Classifier: GaussianNB()
 ------------------------------------------------
-Train time: 0.0011210441589355469
-Accuracy: 0.8166666666666667
-Balanced Accuracy: 0.8166666666666668
-Precision: 0.840701754385965
-Recall: 0.8166666666666668
-F1 Score: 0.8216524216524217
-AUROC: 0.93
+Train time: 0.0
+Accuracy: 0.7971014492753623
+Balanced Accuracy: 0.7971014492753623
+Precision: 0.8290888511601584
+Recall: 0.7971014492753623
+F1 Score: 0.8024691358024691
+AUROC: 0.9369880277252678
 Confusion Matrix:
- [[17  3  0]
- [ 4 16  0]
- [ 4  0 16]]
+ [[20  3  0]
+ [ 7 16  0]
+ [ 4  0 19]]
 ------------------------------------------------

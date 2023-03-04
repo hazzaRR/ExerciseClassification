@@ -24,7 +24,6 @@ def time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, data
     r_score = recall_score(y_test, predictions, average='macro')
     f1 = f1_score(y_test, predictions, average='macro')
     auroc = roc_auc_score(y_test, clf.predict_proba(X_test), multi_class='ovr')
-    print(cm)
     train_time = end - start
 
     with open(f'./{filepath}.txt', 'w') as f:

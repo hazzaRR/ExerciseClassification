@@ -3,16 +3,16 @@ Classifier Results
 Dataset: Harry_weighted_movements_gyro
 Classifier: AdaBoostClassifier()
 ------------------------------------------------
-Train time: 0.09747552871704102
-Accuracy: 0.3707865168539326
-Balanced Accuracy: 0.3635869565217391
-Precision: 0.4638480392156863
-Recall: 0.3635869565217391
-F1 Score: 0.3425905971637679
-AUROC: 0.6574604743083005
+Train time: 0.1288306713104248
+Accuracy: 0.4673913043478261
+Balanced Accuracy: 0.46739130434782605
+Precision: 0.3804255319148936
+Recall: 0.46739130434782605
+F1 Score: 0.40679678848283507
+AUROC: 0.6561121613106491
 Confusion Matrix:
- [[ 2  0 20  1]
- [ 4  3  9  4]
- [ 5  1 16  1]
- [ 5  0  6 12]]
+ [[14  6  3  0]
+ [ 1 17  5  0]
+ [ 8  3 12  0]
+ [ 2 21  0  0]]
 ------------------------------------------------

@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_accel
 Classifier: RocketClassifier(num_kernels=1000)
 ------------------------------------------------
-Train time: 0.38009119033813477
+Train time: 0.4218268394470215
 Accuracy: 1.0
 Balanced Accuracy: 1.0
 Precision: 1.0
@@ -11,7 +11,7 @@ Recall: 1.0
 F1 Score: 1.0
 AUROC: 1.0
 Confusion Matrix:
- [[20  0  0]
- [ 0 20  0]
- [ 0  0 20]]
+ [[23  0  0]
+ [ 0 23  0]
+ [ 0  0 23]]
 ------------------------------------------------

@@ -3,7 +3,7 @@ Classifier Results
 Dataset: Harry_bodyweight_movements_accel
 Classifier: KNeighborsTimeSeriesClassifier()
 ------------------------------------------------
-Train time: 0.1978461742401123
+Train time: 0.22188282012939453
 Accuracy: 1.0
 Balanced Accuracy: 1.0
 Precision: 1.0
@@ -11,7 +11,7 @@ Recall: 1.0
 F1 Score: 1.0
 AUROC: 1.0
 Confusion Matrix:
- [[20  0  0]
- [ 0 20  0]
- [ 0  0 20]]
+ [[23  0  0]
+ [ 0 23  0]
+ [ 0  0 23]]
 ------------------------------------------------
