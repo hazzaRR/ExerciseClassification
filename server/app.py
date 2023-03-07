@@ -1,13 +1,14 @@
 from flask import Flask, request
-import joblib
 import json
 import os
 import numpy as np
+import pickle
 
 app = Flask(__name__)
 
 ROOT_DIR = os.getcwd()
 
+rocket_classifier = pickle.load(open("rocket_model.pkl", "rb"))
 
 def preprocess_data(data):
 
@@ -21,7 +22,6 @@ def preprocess_data(data):
 
     for axis in data:
         axis = axis[50:150]
-        # axis = (axis - np.mean(axis)) / np.std(axis)
         axis = (axis-axis.min())/(axis.max()-axis.min())
         normalised_data.append(axis)
 
@@ -32,7 +32,6 @@ def preprocess_data(data):
     return normalised_data
 
 
-rocket_classifier = joblib.load(os.path.join(ROOT_DIR, 'rocket_model.joblib'))
 
 
 @app.route('/predict', methods=['POST'])

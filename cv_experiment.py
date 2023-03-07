@@ -1,114 +1,118 @@
 import os
-from experiment import time_series_experiment, col_ensemble_experiment
 from sktime.datasets import load_from_tsfile
-from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
-from sktime.classification.interval_based import TimeSeriesForestClassifier
-from sktime.classification.kernel_based import RocketClassifier
-from sktime.classification.dictionary_based import BOSSEnsemble
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.neural_network import MLPClassifier
-from sklearn.naive_bayes import GaussianNB
 import numpy as np
 from sklearn.metrics import make_scorer, accuracy_score, balanced_accuracy_score, precision_score, recall_score, roc_auc_score, f1_score, confusion_matrix
-from sklearn.model_selection import KFold, cross_validate, cross_val_predict
+from sklearn.model_selection import KFold
 import time
-from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import confusion_matrix
+from sktime.classification.compose import ColumnEnsembleClassifier
 
 
-def main() :
+def time_series_experiment(X, y, clf, filepath, dataset_name):
 
-    CURRENT_PATH = os.getcwd()
-    DATA_PATH = os.path.join(CURRENT_PATH, "Data", "datasets")
+    # initialise empty lists to store results
+    train_times = []
+    acc_scores = []
+    bal_acc_scores = []
+    prec_scores = []
+    recall_scores = []
+    f1_scores = []
+    auroc_scores = []
+    # initialise lists to store true and predicted labels, to create final confusion matrix
+    y_true_all = []
+    y_pred_all = []
 
-    X, y =  load_from_tsfile(
-            os.path.join(DATA_PATH, "gym", "Harry_gym_movements", "Harry_gym_movements.ts"), return_data_type="numpy2d")
-    
-    le = LabelEncoder()
-    y_encoded = le.fit_transform(y)
+    """ create a 10 fold cross validation """
+    cv = KFold(n_splits=10, shuffle=True, random_state=44)
 
+    # loop over the splits and fit the classifier for each one
+    for train_idx, test_idx in cv.split(X, y):
 
-    print(y_encoded)
-    print(le.inverse_transform(y_encoded))
+        X_train, X_test = X[train_idx], X[test_idx]  # slice X along the first axis
+        y_train, y_test = y[train_idx], y[test_idx]  # slice y
+        # X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]  # slice X along the first axis
+        # y_train, y_test = y[train_idx], y[test_idx]  # slice y
 
-    kfold = KFold(n_splits=10, shuffle=True, random_state=42)
-
-    # model = KNeighborsClassifier()
-    model = RocketClassifier(num_kernels=1000)
-
-    scoring = {
-        'accuracy': make_scorer(accuracy_score),
-        'bal_accuracy': make_scorer(balanced_accuracy_score),
-        'precision': make_scorer(precision_score, average='macro'),
-        'recall': make_scorer(recall_score, average='macro'),
-        # 'auroc': make_scorer(roc_auc_score, average='macro'),
-        'f1': make_scorer(f1_score, average='macro'),
-        # 'confusion_matrix': make_scorer(confusion_matrix)
-    }
-
-    results = cross_validate(model, X, y_encoded, cv=kfold, scoring=scoring, return_train_score=True)
-
-    print(results)
-
-    # # print the results
-    # for metric, values in results.items():
-    #     if metric.endswith('_time'):
-    #         print(f'{metric}: {values.mean()} +/- {values.std()} seconds')
-    #     elif metric.endswith('_confusion_matrix'):
-    #         print(f'{metric}: {values}')
-    #     else:
-    #         print(f'{metric}: {values.mean()} +/- {values.std()}')
+        """ fit """
+        start = time.time()
+        clf.fit(X_train, y_train)
+        end = time.time()
 
 
-def test():
+        y_pred = clf.predict(X_test)
+        train_times.append((end-start))
+        acc_scores.append(accuracy_score(y_test, y_pred))
+        bal_acc_scores.append(balanced_accuracy_score(y_test, y_pred))
+        prec_scores.append(precision_score(y_test, y_pred, average='weighted'))
+        recall_scores.append(recall_score(y_test, y_pred, average='weighted'))
+        f1_scores.append(f1_score(y_test, y_pred, average='weighted'))
+        auroc_scores.append(roc_auc_score(y_test, clf.predict_proba(X_test), multi_class='ovr', average='weighted'))
 
-    CURRENT_PATH = os.getcwd()
-    DATA_PATH = os.path.join(CURRENT_PATH, "Data", "datasets")
+        y_true_all.extend(y_test)
+        y_pred_all.extend(y_pred)
 
-    # load an example time series dataset
-    X, y =  load_from_tsfile(
-            os.path.join(DATA_PATH, "gym", "Harry_gym_movements", "Harry_gym_movements.ts"), return_data_type="numpy2d")
-    
-    le = LabelEncoder()
-    y = le.fit_transform(y)
+    # print the average scores and the confusion matrices for each fold
+    print(f'Train time: {np.mean(train_times)}')
+    print(f'Accuracy: {np.mean(acc_scores)}')
+    print(f'Balanced Accuracy: {np.mean(bal_acc_scores)}')
+    print(f'Precision: {np.mean(prec_scores)}')
+    print(f'Recall: {np.mean(recall_scores)}')
+    print(f'F1 score: {np.mean(f1_scores)}')
+    print(f'AUROC score: {np.mean(auroc_scores)}')
 
-
-    # assume X is your feature matrix and y is your target variable
-    kfold = KFold(n_splits=10, shuffle=True, random_state=42)
-
-    print(kfold)
-
-    # model = KNeighborsClassifier()
-    model = RocketClassifier(num_kernels=1000)
+    cm = confusion_matrix(y_true_all, y_pred_all)
+    print("Confusion Matrix:\n", cm)
 
 
-    y_pred = cross_val_predict(model, X, y, cv=kfold)
-
-
-        # evaluate performance metrics
-    accuracy = accuracy_score(y, y_pred)
-    balanced_accuracy = balanced_accuracy_score(y, y_pred)
-    precision = precision_score(y, y_pred, average='weighted')
-    recall = recall_score(y, y_pred, average='weighted')
-    # roc_auc = roc_auc_score(y, y_pred, average='weighted', multi_class='ovr')
-    f1 = f1_score(y, y_pred, average='weighted')
-    confusion = confusion_matrix(y, y_pred)
-
-    # print results
-    print("Accuracy:", accuracy)
-    print("Balanced accuracy:", balanced_accuracy)
-    print("Precision:", precision)
-    print("Recall:", recall)
-    # print("AUROC:", roc_auc)
-    print("F1 score:", f1)
-    print("Confusion matrix:\n", confusion)
+    with open(f'./{filepath}.txt', 'w') as f:
+        f.write("Classifier Results\n")
+        f.write("------------------------------------------------\n")
+        f.write(f"Dataset: {dataset_name}\n")
+        f.write(f"Classifier: {str(clf)}\n")
+        f.write("------------------------------------------------\n")
+        f.write(f"Train time: {np.mean(train_times)}\n")
+        f.write(f"Accuracy: {np.mean(acc_scores)}\n")
+        f.write(f"Balanced Accuracy: {np.mean(bal_acc_scores)}\n")
+        f.write(f"Precision: {np.mean(prec_scores)}\n")
+        f.write(f"Recall: {np.mean(recall_scores)}\n")
+        f.write(f"F1 Score: {np.mean(f1_scores)}\n")
+        f.write(f"AUROC: {np.mean(auroc_scores)}\n")
+        f.write(f"Confusion Matrix:\n {cm}\n")
+        f.write("------------------------------------------------\n")
 
 
 
+def col_ensemble_experiment(X, y, clf_to_use, filepath, dataset_name):
 
+    rows, cols = np.shape(X)
+
+    classifiersToEnsemble = []
+
+    if cols == 1:
+
+        clf = clf_to_use
+
+
+    else:
+
+        for i in range(cols):
+            clfName = "clf" + str(i)
+            clf = clf_to_use
+            col = [i]
+
+            clfTuple = (clfName, clf, col)
+            classifiersToEnsemble.append(clfTuple)
+
+        clf = ColumnEnsembleClassifier(
+        estimators=classifiersToEnsemble)
+
+
+    accuracy, train_time, confusion_matrix, bal_accuracy = time_series_experiment(X, y, clf, filepath, dataset_name)
+
+
+    return accuracy, train_time, confusion_matrix, bal_accuracy
 
 
 if __name__ == "__main__":
     # main()
-    test()
+    test2()
