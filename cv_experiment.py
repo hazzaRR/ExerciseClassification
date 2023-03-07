@@ -110,7 +110,9 @@ def col_ensemble_experiment(X, y, clf_to_use, filepath, dataset_name):
     time_series_experiment(X, y, clf, filepath, dataset_name)
 
 
+def main():
+    print("hello, world!")
+
 
 if __name__ == "__main__":
-    # main()
-    test2()
+    main()
