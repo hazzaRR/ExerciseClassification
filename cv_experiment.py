@@ -33,7 +33,7 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
         # X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]  # slice X along the first axis
         # y_train, y_test = y[train_idx], y[test_idx]  # slice y
 
-        """ fit """
+        """ get time to fit the classifier with the training data """
         start = time.time()
         clf.fit(X_train, y_train)
         end = time.time()
@@ -51,7 +51,7 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
         y_true_all.extend(y_test)
         y_pred_all.extend(y_pred)
 
-    # print the average scores and the confusion matrices for each fold
+    # print the average scores and the overall confusion matrix
     print(f'Train time: {np.mean(train_times)}')
     print(f'Accuracy: {np.mean(acc_scores)}')
     print(f'Balanced Accuracy: {np.mean(bal_acc_scores)}')
@@ -63,7 +63,7 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
     cm = confusion_matrix(y_true_all, y_pred_all)
     print("Confusion Matrix:\n", cm)
 
-
+    """ save all the results to a txt file """
     with open(f'./{filepath}.txt', 'w') as f:
         f.write("Classifier Results\n")
         f.write("------------------------------------------------\n")
@@ -107,10 +107,8 @@ def col_ensemble_experiment(X, y, clf_to_use, filepath, dataset_name):
         estimators=classifiersToEnsemble)
 
 
-    accuracy, train_time, confusion_matrix, bal_accuracy = time_series_experiment(X, y, clf, filepath, dataset_name)
+    time_series_experiment(X, y, clf, filepath, dataset_name)
 
-
-    return accuracy, train_time, confusion_matrix, bal_accuracy
 
 
 if __name__ == "__main__":
