@@ -3,9 +3,9 @@ from sktime.datasets import load_from_tsfile
 from sktime.classification.kernel_based import RocketClassifier
 import numpy as np
 import pandas as pd
-import joblib
 import requests
 import json
+import pickle
 
 
 def main():
@@ -28,7 +28,8 @@ def main():
 
     rocket_classifier.fit(X_train, y_train)
 
-    joblib.dump(rocket_classifier, './server/rocket_model.joblib')
+
+    pickle.dump(rocket_classifier, open("./server/rocket_model.pkl", "wb"))
 
 
 
