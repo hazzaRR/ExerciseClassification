@@ -2,7 +2,7 @@ import os
 from sktime.datasets import load_from_tsfile
 import numpy as np
 from sklearn.metrics import make_scorer, accuracy_score, balanced_accuracy_score, precision_score, recall_score, roc_auc_score, f1_score, confusion_matrix
-from sklearn.model_selection import KFold
+from sklearn.model_selection import KFold, StratifiedKFold
 import time
 from sklearn.metrics import confusion_matrix
 from sktime.classification.compose import ColumnEnsembleClassifier
@@ -23,7 +23,7 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
     y_pred_all = []
 
     """ create a 10 fold cross validation """
-    cv = KFold(n_splits=10, shuffle=True, random_state=44)
+    cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=44)
 
     # loop over the splits and fit the classifier for each one
     for train_idx, test_idx in cv.split(X, y):
@@ -52,13 +52,13 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
         y_pred_all.extend(y_pred)
 
     # print the average scores and the overall confusion matrix
-    print(f'Train time: {np.mean(train_times)}')
-    print(f'Accuracy: {np.mean(acc_scores)}')
-    print(f'Balanced Accuracy: {np.mean(bal_acc_scores)}')
-    print(f'Precision: {np.mean(prec_scores)}')
-    print(f'Recall: {np.mean(recall_scores)}')
-    print(f'F1 score: {np.mean(f1_scores)}')
-    print(f'AUROC score: {np.mean(auroc_scores)}')
+    print(f'Mean Train time: {np.mean(train_times)}, Standard Deviation: {np.std(train_times)}')
+    print(f'Mean Accuracy: {np.mean(acc_scores)}, Standard Deviation: {np.std(acc_scores)}')
+    print(f'Mean Balanced Accuracy: {np.mean(bal_acc_scores)}, Standard Deviation: {np.std(bal_acc_scores)}')
+    print(f'Mean Precision: {np.mean(prec_scores)}, Standard Deviation: {np.std(prec_scores)}')
+    print(f'Mean Recall: {np.mean(recall_scores)}, Standard Deviation: {np.std(recall_scores)}')
+    print(f'Mean F1 score: {np.mean(f1_scores)}, Standard Deviation: {np.std(f1_scores)}')
+    print(f'Mean AUROC score: {np.mean(auroc_scores)}, Standard Deviation: {np.std(auroc_scores)}')
 
     cm = confusion_matrix(y_true_all, y_pred_all)
     print("Confusion Matrix:\n", cm)
@@ -70,21 +70,33 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
         f.write(f"Dataset: {dataset_name}\n")
         f.write(f"Classifier: {str(clf)}\n")
         f.write("------------------------------------------------\n")
-        f.write(f"Train time: {np.mean(train_times)}\n")
-        f.write(f"Accuracy: {np.mean(acc_scores)}\n")
-        f.write(f"Balanced Accuracy: {np.mean(bal_acc_scores)}\n")
-        f.write(f"Precision: {np.mean(prec_scores)}\n")
-        f.write(f"Recall: {np.mean(recall_scores)}\n")
-        f.write(f"F1 Score: {np.mean(f1_scores)}\n")
-        f.write(f"AUROC: {np.mean(auroc_scores)}\n")
+        f.write("Summary Stats-----------------------------------\n")
+        f.write(f"Mean Train time: {np.mean(train_times)}, Standard Deviation: {np.std(train_times)}\n")
+        f.write(f"Mean Accuracy: {np.mean(acc_scores)}, Standard Deviation: {np.std(acc_scores)}\n")
+        f.write(f"Mean Balanced Accuracy: {np.mean(bal_acc_scores)}, Standard Deviation: {np.std(bal_acc_scores)}\n")
+        f.write(f"Mean Precision: {np.mean(prec_scores)}, Standard Deviation: {np.std(prec_scores)}\n")
+        f.write(f"Mean Recall: {np.mean(recall_scores)}, Standard Deviation: {np.std(recall_scores)}\n")
+        f.write(f"Mean F1 Score: {np.mean(f1_scores)}, Standard Deviation: {np.std(f1_scores)}\n")
+        f.write(f"Mean AUROC: {np.mean(auroc_scores)}, Standard Deviation: {np.std(auroc_scores)}\n")
         f.write(f"Confusion Matrix:\n {cm}\n")
+        f.write("Fold Results-----------------------------------\n")
+        f.write(f"Train time: {train_times}\n")
+        f.write(f"Accuracy: {acc_scores}\n")
+        f.write(f"Balanced Accuracy: {bal_acc_scores}\n")
+        f.write(f"Precision: {prec_scores}\n")
+        f.write(f"Recall: {recall_scores}\n")
+        f.write(f"F1 Score: {f1_scores}\n")
+        f.write(f"AUROC: {auroc_scores}\n")
         f.write("------------------------------------------------\n")
 
 
 
 def col_ensemble_experiment(X, y, clf_to_use, filepath, dataset_name):
 
-    rows, cols = np.shape(X)
+
+    rows, cols, instances = np.shape(X)
+
+    print(cols)
 
     classifiersToEnsemble = []
 

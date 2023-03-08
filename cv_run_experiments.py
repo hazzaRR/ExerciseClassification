@@ -45,18 +45,16 @@ def run_experiment(clf, sklearn_clf=False, uni_ts_clf=False):
 
             else:
                 
-
                 X, y = load_from_tsfile(
                 os.path.join(CURRENT_DATASET, dataset, f"{dataset}.ts"), return_data_type="numpy3d"
                 )
 
 
             if uni_ts_clf:
-                print(col_ensemble_experiment(X, y, clf, f"cv_results/{clf_name}/{dataset}_cv", dataset))
+                col_ensemble_experiment(X, y, clf, f"cv_results/{clf_name}/{dataset}_cv", dataset)
 
             else:
-            # print(X_train)
-                print(time_series_experiment(X, y, clf, f"cv_results/{clf_name}/{dataset}_cv", dataset))
+                time_series_experiment(X, y, clf, f"cv_results/{clf_name}/{dataset}_cv", dataset)
 
 def main() :
 
