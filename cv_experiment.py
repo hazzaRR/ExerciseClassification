@@ -70,6 +70,7 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
         f.write(f"Dataset: {dataset_name}\n")
         f.write(f"Classifier: {str(clf)}\n")
         f.write("------------------------------------------------\n")
+        f.write("Summary Stats-----------------------------------\n")
         f.write(f"Mean Train time: {np.mean(train_times)}, Standard Deviation: {np.std(train_times)}\n")
         f.write(f"Mean Accuracy: {np.mean(acc_scores)}, Standard Deviation: {np.std(acc_scores)}\n")
         f.write(f"Mean Balanced Accuracy: {np.mean(bal_acc_scores)}, Standard Deviation: {np.std(bal_acc_scores)}\n")
@@ -78,6 +79,14 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
         f.write(f"Mean F1 Score: {np.mean(f1_scores)}, Standard Deviation: {np.std(f1_scores)}\n")
         f.write(f"Mean AUROC: {np.mean(auroc_scores)}, Standard Deviation: {np.std(auroc_scores)}\n")
         f.write(f"Confusion Matrix:\n {cm}\n")
+        f.write("Fold Results-----------------------------------\n")
+        f.write(f"Train time: {train_times}\n")
+        f.write(f"Accuracy: {acc_scores}\n")
+        f.write(f"Balanced Accuracy: {bal_acc_scores}\n")
+        f.write(f"Precision: {prec_scores}\n")
+        f.write(f"Recall: {recall_scores}\n")
+        f.write(f"F1 Score: {f1_scores}\n")
+        f.write(f"AUROC: {auroc_scores}\n")
         f.write("------------------------------------------------\n")
 
 
