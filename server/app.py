@@ -45,8 +45,12 @@ def predict():
     print(sensorData)
 
     prediction = rocket_classifier.predict(sensorData)
+    prediction_probabilties = rocket_classifier.predict_proba(data)
+    
 
     print(prediction)
+    print(prediction_probabilties)
+
 
     return list(prediction)
 
@@ -61,8 +65,11 @@ def test_predict():
     data = np.array(data)
 
     prediction = rocket_classifier.predict(data)
+    prediction_probabilties = rocket_classifier.predict_proba(data)
+
 
     print(prediction)
+    print(prediction_probabilties)
 
     return prediction[0]
 

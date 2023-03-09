@@ -1,11 +1,12 @@
 import os
 from sktime.datasets import load_from_tsfile
 import numpy as np
-from sklearn.metrics import make_scorer, accuracy_score, balanced_accuracy_score, precision_score, recall_score, roc_auc_score, f1_score, confusion_matrix
-from sklearn.model_selection import KFold, StratifiedKFold
+from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, roc_auc_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
+from sklearn.model_selection import StratifiedKFold
 import time
 from sklearn.metrics import confusion_matrix
 from sktime.classification.compose import ColumnEnsembleClassifier
+import matplotlib.pyplot as plt
 
 
 def time_series_experiment(X, y, clf, filepath, dataset_name):
@@ -60,8 +61,20 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
     print(f'Mean F1 score: {np.mean(f1_scores)}, Standard Deviation: {np.std(f1_scores)}')
     print(f'Mean AUROC score: {np.mean(auroc_scores)}, Standard Deviation: {np.std(auroc_scores)}')
 
-    cm = confusion_matrix(y_true_all, y_pred_all)
+    cm = confusion_matrix(y_true_all, y_pred_all, labels=clf.classes_)
+
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm,
+                              display_labels=clf.classes_)
+    disp.plot()
+
+    plt.show()
+
+    plt.savefig(os.path.join())
+
+    plt.clf()
     print("Confusion Matrix:\n", cm)
+
+
 
     """ save all the results to a txt file """
     with open(f'./{filepath}.txt', 'w') as f:
