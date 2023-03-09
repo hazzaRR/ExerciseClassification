@@ -1,0 +1,40 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements
+Classifier: ColumnEnsembleClassifier(estimators=[('clf0', TimeSeriesForestClassifier(),
+                                      [0]),
+                                     ('clf1', TimeSeriesForestClassifier(),
+                                      [1]),
+                                     ('clf2', TimeSeriesForestClassifier(),
+                                      [2]),
+                                     ('clf3', TimeSeriesForestClassifier(),
+                                      [3]),
+                                     ('clf4', TimeSeriesForestClassifier(),
+                                      [4]),
+                                     ('clf5', TimeSeriesForestClassifier(),
+                                      [5])])
+------------------------------------------------
+Summary Stats
+------------------------------------------------
+Mean Train time: 6.238627076148987, Standard Deviation: 0.05132806735603972
+Mean Accuracy: 1.0, Standard Deviation: 0.0
+Mean Balanced Accuracy: 1.0, Standard Deviation: 0.0
+Mean Precision: 1.0, Standard Deviation: 0.0
+Mean Recall: 1.0, Standard Deviation: 0.0
+Mean F1 Score: 1.0, Standard Deviation: 0.0
+Mean AUROC: 1.0, Standard Deviation: 0.0
+Confusion Matrix:
+ [[45  0  0]
+ [ 0 45  0]
+ [ 0  0 45]]
+------------------------------------------------
+Fold Results
+------------------------------------------------
+Train time: [6.321682929992676, 6.186383247375488, 6.195249795913696, 6.305670261383057, 6.2354736328125, 6.167065143585205, 6.22606086730957, 6.298039197921753, 6.201147794723511, 6.249497890472412]
+Accuracy: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Balanced Accuracy: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Precision: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Recall: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+F1 Score: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+AUROC: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+------------------------------------------------

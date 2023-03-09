@@ -1,0 +1,29 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_gyro
+Classifier: RocketClassifier(num_kernels=1000)
+------------------------------------------------
+Summary Stats
+------------------------------------------------
+Mean Train time: 0.3746971368789673, Standard Deviation: 0.016272372333088005
+Mean Accuracy: 1.0, Standard Deviation: 0.0
+Mean Balanced Accuracy: 1.0, Standard Deviation: 0.0
+Mean Precision: 1.0, Standard Deviation: 0.0
+Mean Recall: 1.0, Standard Deviation: 0.0
+Mean F1 Score: 1.0, Standard Deviation: 0.0
+Mean AUROC: 1.0, Standard Deviation: 0.0
+Confusion Matrix:
+ [[45  0  0]
+ [ 0 45  0]
+ [ 0  0 45]]
+------------------------------------------------
+Fold Results
+------------------------------------------------
+Train time: [0.3585810661315918, 0.3945903778076172, 0.37429165840148926, 0.40059638023376465, 0.3810913562774658, 0.37430715560913086, 0.3700897693634033, 0.3850874900817871, 0.3417506217956543, 0.36658549308776855]
+Accuracy: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Balanced Accuracy: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Precision: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Recall: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+F1 Score: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+AUROC: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+------------------------------------------------

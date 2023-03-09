@@ -1,0 +1,29 @@
+Classifier Results
+------------------------------------------------
+Dataset: Harry_bodyweight_movements_accel
+Classifier: RocketClassifier(num_kernels=1000)
+------------------------------------------------
+Summary Stats
+------------------------------------------------
+Mean Train time: 0.3654947757720947, Standard Deviation: 0.019050830259525572
+Mean Accuracy: 1.0, Standard Deviation: 0.0
+Mean Balanced Accuracy: 1.0, Standard Deviation: 0.0
+Mean Precision: 1.0, Standard Deviation: 0.0
+Mean Recall: 1.0, Standard Deviation: 0.0
+Mean F1 Score: 1.0, Standard Deviation: 0.0
+Mean AUROC: 1.0, Standard Deviation: 0.0
+Confusion Matrix:
+ [[45  0  0]
+ [ 0 45  0]
+ [ 0  0 45]]
+------------------------------------------------
+Fold Results
+------------------------------------------------
+Train time: [0.3730893135070801, 0.3488185405731201, 0.3921988010406494, 0.35614705085754395, 0.3360724449157715, 0.3440852165222168, 0.36458659172058105, 0.37377142906188965, 0.3985905647277832, 0.3675878047943115]
+Accuracy: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Balanced Accuracy: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Precision: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Recall: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+F1 Score: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+AUROC: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+------------------------------------------------
