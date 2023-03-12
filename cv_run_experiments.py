@@ -13,7 +13,7 @@ from sklearn.naive_bayes import GaussianNB
 import numpy as np
 
 
-def run_experiment(clf, clf_name, sklearn_clf=False, uni_ts_clf=False):
+def run_experiment(clf, clf_name, data_2d_array=False, uni_ts_clf=False):
 
     # clf_name = str(clf).split('(')[0]
 
@@ -38,7 +38,7 @@ def run_experiment(clf, clf_name, sklearn_clf=False, uni_ts_clf=False):
 
             """ load in train and test data """
 
-            if sklearn_clf:
+            if data_2d_array:
 
                 X, y = load_from_tsfile(
                 os.path.join(CURRENT_DATASET, dataset, f"{dataset}.ts"), return_data_type="numpy2d"
@@ -74,25 +74,25 @@ def main() :
     run_experiment(clf=tsf_classifier, clf_name="Time Series Forest", uni_ts_clf=True)
     
     boss_classifier = BOSSEnsemble()
-    run_experiment(clf=boss_classifier, clf_name="Boss", uni_ts_clf=True)
+    run_experiment(clf=boss_classifier, clf_name="Boss", data_2d_array=True)
 
     dt_classifier = DecisionTreeClassifier()
-    run_experiment(clf=dt_classifier,clf_name="Decision Tree", sklearn_clf=True)
+    run_experiment(clf=dt_classifier,clf_name="Decision Tree", data_2d_array=True)
 
     nb_classifier = GaussianNB()
-    run_experiment(clf=nb_classifier,clf_name="Naive Bayes", sklearn_clf=True)
+    run_experiment(clf=nb_classifier,clf_name="Naive Bayes", data_2d_array=True)
 
     ada_classifier = AdaBoostClassifier()
-    run_experiment(clf=ada_classifier, clf_name="AdaBoost", sklearn_clf=True)
+    run_experiment(clf=ada_classifier, clf_name="AdaBoost", data_2d_array=True)
 
     mlp_classifier = MLPClassifier()
-    run_experiment(clf=mlp_classifier,clf_name="Multi-layer Perceptron", sklearn_clf=True)
+    run_experiment(clf=mlp_classifier,clf_name="Multi-layer Perceptron", data_2d_array=True)
 
     rf_classifier = RandomForestClassifier()
-    run_experiment(clf=rf_classifier,clf_name="Random Forest", sklearn_clf=True)
+    run_experiment(clf=rf_classifier,clf_name="Random Forest", data_2d_array=True)
 
     knn_classifier = KNeighborsClassifier()
-    run_experiment(clf=knn_classifier, clf_name="kNN-ED", sklearn_clf=True)
+    run_experiment(clf=knn_classifier, clf_name="kNN-ED", data_2d_array=True)
 
 
 if __name__ == "__main__":

@@ -73,7 +73,7 @@ def time_series_experiment(X, y, clf, clf_name, filepath, cm_filepath, dataset_n
                               display_labels=clf.classes_)
 
     # plot and save the confusion matrix
-    fig, ax = plt.subplots(figsize=(8, 7))
+    fig, ax = plt.subplots(figsize=(10, 9))
     cmd.plot(ax=ax, cmap=plt.cm.Blues, values_format='d')
     plt.xticks(rotation=45)
     plt.title(f"{clf_name} on {dataset_name}")

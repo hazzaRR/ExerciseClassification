@@ -13,7 +13,7 @@ from sklearn.naive_bayes import GaussianNB
 import numpy as np
 
 
-def run_experiment(clf, sklearn_clf=False, uni_ts_clf=False):
+def run_experiment(clf, data_2d_array=False, uni_ts_clf=False):
 
     clf_name = str(clf).split('(')[0]
 
@@ -42,7 +42,7 @@ def run_experiment(clf, sklearn_clf=False, uni_ts_clf=False):
 
             """ load in train and test data """
 
-            if sklearn_clf:
+            if data_2d_array:
 
                 X_train, y_train = load_from_tsfile(
                 os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TRAIN.ts"), return_data_type="numpy2d"
@@ -85,7 +85,7 @@ def main() :
     # run_experiment(clf=tsf_classifier, uni_ts_clf=True)
     
     boss_classifier = BOSSEnsemble()
-    run_experiment(clf=boss_classifier, sklearn_clf=True)
+    run_experiment(clf=boss_classifier, data_2d_array=True)
 
     # dt_classifier = DecisionTreeClassifier()
     # run_experiment(clf=dt_classifier, sklearn_clf=True)
