@@ -13,9 +13,9 @@ from sklearn.naive_bayes import GaussianNB
 import numpy as np
 
 
-def run_experiment(clf, sklearn_clf=False, uni_ts_clf=False):
+def run_experiment(clf, clf_name, sklearn_clf=False, uni_ts_clf=False):
 
-    clf_name = str(clf).split('(')[0]
+    # clf_name = str(clf).split('(')[0]
 
     # print(clf_name)
     CURRENT_PATH = os.getcwd()
@@ -52,10 +52,10 @@ def run_experiment(clf, sklearn_clf=False, uni_ts_clf=False):
 
 
             if uni_ts_clf:
-                col_ensemble_experiment(X, y, clf, f"cv_results/{clf_name}/{dataset}_cv", dataset)
+                col_ensemble_experiment(X, y, clf, clf_name, f"cv_results/{clf_name}/{dataset}_cv", f"cv_results/{clf_name}/cm_figures/{dataset}", dataset)
 
             else:
-                time_series_experiment(X, y, clf, f"cv_results/{clf_name}/{dataset}_cv", dataset)
+                time_series_experiment(X, y, clf, clf_name, f"cv_results/{clf_name}/{dataset}_cv", f"cv_results/{clf_name}/cm_figures/{dataset}", dataset)
 
 def main() :
 
@@ -65,34 +65,34 @@ def main() :
         os.makedirs(RESULT_PATH)
 
     knn_classifier = KNeighborsTimeSeriesClassifier(distance='dtw')
-    run_experiment(clf=knn_classifier)
+    run_experiment(clf=knn_classifier, clf_name="kNN-DTW")
 
-    # rocket_classifier = RocketClassifier(num_kernels=1000)
-    # run_experiment(clf=rocket_classifier)
+    rocket_classifier = RocketClassifier(num_kernels=1000)
+    run_experiment(clf=rocket_classifier, clf_name="Rocket")
 
-    # tsf_classifier = TimeSeriesForestClassifier()
-    # run_experiment(clf=tsf_classifier, uni_ts_clf=True)
+    tsf_classifier = TimeSeriesForestClassifier()
+    run_experiment(clf=tsf_classifier, clf_name="Time Series Forest", uni_ts_clf=True)
     
-    # boss_classifier = BOSSEnsemble()
-    # run_experiment(clf=boss_classifier, uni_ts_clf=True)
+    boss_classifier = BOSSEnsemble()
+    run_experiment(clf=boss_classifier, clf_name="Boss", uni_ts_clf=True)
 
-    # dt_classifier = DecisionTreeClassifier()
-    # run_experiment(clf=dt_classifier, sklearn_clf=True)
+    dt_classifier = DecisionTreeClassifier()
+    run_experiment(clf=dt_classifier,clf_name="Decision Tree", sklearn_clf=True)
 
-    # nb_classifier = GaussianNB()
-    # run_experiment(clf=nb_classifier, sklearn_clf=True)
+    nb_classifier = GaussianNB()
+    run_experiment(clf=nb_classifier,clf_name="Naive Bayes" sklearn_clf=True)
 
-    # ada_classifier = AdaBoostClassifier()
-    # run_experiment(clf=ada_classifier, sklearn_clf=True)
+    ada_classifier = AdaBoostClassifier()
+    run_experiment(clf=ada_classifier, clf_name="AdaBoost", sklearn_clf=True)
 
-    # mlp_classifier = MLPClassifier()
-    # run_experiment(clf=mlp_classifier, sklearn_clf=True)
+    mlp_classifier = MLPClassifier()
+    run_experiment(clf=mlp_classifier,clf_name="Multi-layer Perceptron", sklearn_clf=True)
 
-    # rf_classifier = RandomForestClassifier()
-    # run_experiment(clf=rf_classifier, sklearn_clf=True)
+    rf_classifier = RandomForestClassifier()
+    run_experiment(clf=rf_classifier,clf_name="Random Forest", sklearn_clf=True)
 
-    # knn_classifier = KNeighborsClassifier()
-    # run_experiment(clf=knn_classifier, sklearn_clf=True)
+    knn_classifier = KNeighborsClassifier()
+    run_experiment(clf=knn_classifier, clf_name="kNN-ED", sklearn_clf=True)
 
 
 if __name__ == "__main__":

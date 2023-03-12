@@ -9,7 +9,13 @@ from sktime.classification.compose import ColumnEnsembleClassifier
 import matplotlib.pyplot as plt
 
 
-def time_series_experiment(X, y, clf, filepath, dataset_name):
+def time_series_experiment(X, y, clf, clf_name, filepath, cm_filepath, dataset_name):
+
+    dataset_name = dataset_name.replace('_', ' ')
+
+    dataset_name = dataset_name.split(' ')
+
+    dataset_name = ' '.join(dataset_name[1:])
 
     # initialise empty lists to store results
     train_times = []
@@ -63,15 +69,16 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
 
     cm = confusion_matrix(y_true_all, y_pred_all, labels=clf.classes_)
 
-    disp = ConfusionMatrixDisplay(confusion_matrix=cm,
+    cmd = ConfusionMatrixDisplay(confusion_matrix=cm,
                               display_labels=clf.classes_)
-    disp.plot()
 
-    plt.show()
+    # plot and save the confusion matrix
+    fig, ax = plt.subplots(figsize=(8, 7))
+    cmd.plot(ax=ax, cmap=plt.cm.Blues, values_format='d')
+    plt.xticks(rotation=45)
+    plt.title(f"{clf_name} on {dataset_name}")
+    plt.savefig(cm_filepath)
 
-    plt.savefig(os.path.join())
-
-    plt.clf()
     print("Confusion Matrix:\n", cm)
 
 
@@ -81,7 +88,7 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
         f.write("Classifier Results\n")
         f.write("------------------------------------------------\n")
         f.write(f"Dataset: {dataset_name}\n")
-        f.write(f"Classifier: {str(clf)}\n")
+        f.write(f"Classifier: {clf_name}\n")
         f.write("------------------------------------------------\n")
         f.write("Summary Stats\n")
         f.write("------------------------------------------------\n")
@@ -107,8 +114,7 @@ def time_series_experiment(X, y, clf, filepath, dataset_name):
 
 
 
-def col_ensemble_experiment(X, y, clf_to_use, filepath, dataset_name):
-
+def col_ensemble_experiment(X, y, clf_to_use, clf_name, filepath, cm_filepath, dataset_name):
 
     rows, cols, instances = np.shape(X)
 
@@ -135,7 +141,7 @@ def col_ensemble_experiment(X, y, clf_to_use, filepath, dataset_name):
         estimators=classifiersToEnsemble)
 
 
-    time_series_experiment(X, y, clf, filepath, dataset_name)
+    time_series_experiment(X, y, clf, clf_name, filepath, cm_filepath, dataset_name)
 
 
 def main():

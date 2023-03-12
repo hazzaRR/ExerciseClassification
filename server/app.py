@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import json
 import os
 import numpy as np
@@ -71,7 +71,9 @@ def test_predict():
     print(prediction)
     print(prediction_probabilties)
 
-    return prediction[0]
+    response = [prediction[0], prediction_probabilties[0]]
+
+    return jsonify(list(response))
 
 
 
