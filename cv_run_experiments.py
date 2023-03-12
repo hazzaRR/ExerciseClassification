@@ -80,7 +80,7 @@ def main() :
     run_experiment(clf=dt_classifier,clf_name="Decision Tree", sklearn_clf=True)
 
     nb_classifier = GaussianNB()
-    run_experiment(clf=nb_classifier,clf_name="Naive Bayes" sklearn_clf=True)
+    run_experiment(clf=nb_classifier,clf_name="Naive Bayes", sklearn_clf=True)
 
     ada_classifier = AdaBoostClassifier()
     run_experiment(clf=ada_classifier, clf_name="AdaBoost", sklearn_clf=True)
