@@ -25,7 +25,7 @@ def run_experiment(clf, clf_name, data_2d_array=False, uni_ts_clf=False):
 
     if not os.path.exists(RESULT_PATH):
         os.makedirs(RESULT_PATH)
-        os.makedirs(os.path.join(RESULT_PATH, 'cm_figures'))
+        os.makedirs(os.path.join(RESULT_PATH, 'confusion_matrices'))
 
 
     for dataset_type in os.listdir(DATA_PATH):
@@ -52,10 +52,10 @@ def run_experiment(clf, clf_name, data_2d_array=False, uni_ts_clf=False):
 
 
             if uni_ts_clf:
-                col_ensemble_experiment(X, y, clf, clf_name, f"cv_results/{clf_name}/{dataset}_cv", f"cv_results/{clf_name}/cm_figures/{dataset}", dataset)
+                col_ensemble_experiment(X, y, clf, clf_name, f"cv_results/{clf_name}/{dataset}_cv", f"cv_results/{clf_name}/confusion_matrices/{dataset}", dataset)
 
             else:
-                time_series_experiment(X, y, clf, clf_name, f"cv_results/{clf_name}/{dataset}_cv", f"cv_results/{clf_name}/cm_figures/{dataset}", dataset)
+                time_series_experiment(X, y, clf, clf_name, f"cv_results/{clf_name}/{dataset}_cv", f"cv_results/{clf_name}/confusion_matrices/{dataset}", dataset)
 
 def main() :
 
