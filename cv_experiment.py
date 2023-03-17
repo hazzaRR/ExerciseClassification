@@ -118,8 +118,6 @@ def col_ensemble_experiment(X, y, clf_to_use, clf_name, filepath, cm_filepath, d
 
     rows, cols, instances = np.shape(X)
 
-    print(cols)
-
     classifiersToEnsemble = []
 
     if cols == 1:

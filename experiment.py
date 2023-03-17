@@ -3,11 +3,18 @@ from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
 from sktime.classification.interval_based import TimeSeriesForestClassifier
 from sktime.classification.compose import ColumnEnsembleClassifier
 from sktime.datasets import load_from_tsfile
-from sklearn.metrics import accuracy_score, balanced_accuracy_score, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.metrics import accuracy_score, balanced_accuracy_score, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score, ConfusionMatrixDisplay
 import numpy as np
+import matplotlib.pyplot as plt
 import time
 
-def time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, dataset_name):
+def time_series_experiment(X_train, y_train, X_test, y_test, clf, clf_name, filepath, cm_filepath, dataset_name):
+
+    dataset_name = dataset_name.replace('_', ' ')
+
+    dataset_name = dataset_name.split(' ')
+
+    dataset_name = ' '.join(dataset_name[1:])
 
     """ train classifier and calculate train time """
     start = time.time()
@@ -30,7 +37,7 @@ def time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, data
         f.write("Classifier Results\n")
         f.write("------------------------------------------------\n")
         f.write(f"Dataset: {dataset_name}\n")
-        f.write(f"Classifier: {str(clf)}\n")
+        f.write(f"Classifier: {clf_name}\n")
         f.write("------------------------------------------------\n")
         f.write(f"Train time: {train_time}\n")
         f.write(f"Accuracy: {accuracy}\n")
@@ -43,11 +50,19 @@ def time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, data
         f.write("------------------------------------------------\n")
 
 
+    cmd = ConfusionMatrixDisplay(confusion_matrix=cm,
+                              display_labels=clf.classes_)
+    # plot and save the confusion matrix
+    fig, ax = plt.subplots(figsize=(10, 9))
+    cmd.plot(ax=ax, cmap=plt.cm.Blues, values_format='d')
+    plt.xticks(rotation=45)
+    plt.title(f"{clf_name} on 50:50 train/test split {dataset_name}")
+    plt.savefig(cm_filepath)
 
-    return accuracy, train_time, cm, bal_accuracy
 
 
-def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use, filepath, dataset_name):
+
+def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use, clf_name, filepath, cm_filepath, dataset_name):
 
     rows, cols = np.shape(X_train)
 
@@ -70,12 +85,11 @@ def col_ensemble_experiment(X_train, y_train, X_test, y_test, clf_to_use, filepa
 
         clf = ColumnEnsembleClassifier(
         estimators=classifiersToEnsemble)
+        
+        
+    time_series_experiment(X_train, y_train, X_test, y_test, clf, clf_name, filepath, cm_filepath, dataset_name)
 
 
-    accuracy, train_time, confusion_matrix, bal_accuracy = time_series_experiment(X_train, y_train, X_test, y_test, clf, filepath, dataset_name)
-
-
-    return accuracy, train_time, confusion_matrix, bal_accuracy
 
 
 def main():
