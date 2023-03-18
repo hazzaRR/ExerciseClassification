@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: bodyweight movements accel
+Classifier: kNN-DTW
+------------------------------------------------
+Train time: 0.2885117530822754
+Accuracy: 1.0
+Balanced Accuracy: 1.0
+Precision: 1.0
+Recall: 1.0
+F1 Score: 1.0
+AUROC: 1.0
+Confusion Matrix:
+ [[23  0  0]
+ [ 0 23  0]
+ [ 0  0 23]]
+------------------------------------------------

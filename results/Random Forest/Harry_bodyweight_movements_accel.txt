@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: bodyweight movements accel
+Classifier: Random Forest
+------------------------------------------------
+Train time: 0.10856366157531738
+Accuracy: 0.8840579710144928
+Balanced Accuracy: 0.8840579710144927
+Precision: 0.8968253968253969
+Recall: 0.8840579710144927
+F1 Score: 0.8855380066050381
+AUROC: 0.9741650913673597
+Confusion Matrix:
+ [[22  1  0]
+ [ 4 19  0]
+ [ 2  1 20]]
+------------------------------------------------

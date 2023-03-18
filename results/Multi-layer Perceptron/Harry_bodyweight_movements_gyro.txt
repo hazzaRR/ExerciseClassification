@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: bodyweight movements gyro
+Classifier: Multi-layer Perceptron
+------------------------------------------------
+Train time: 0.18953347206115723
+Accuracy: 0.7391304347826086
+Balanced Accuracy: 0.7391304347826088
+Precision: 0.7380952380952381
+Recall: 0.7391304347826088
+F1 Score: 0.7343406707291796
+AUROC: 0.8922495274102079
+Confusion Matrix:
+ [[15  6  2]
+ [ 3 15  5]
+ [ 2  0 21]]
+------------------------------------------------

@@ -1,0 +1,18 @@
+Classifier Results
+------------------------------------------------
+Dataset: weighted movements accel
+Classifier: Multi-layer Perceptron
+------------------------------------------------
+Train time: 0.21103668212890625
+Accuracy: 0.717391304347826
+Balanced Accuracy: 0.7173913043478262
+Precision: 0.7310442523099352
+Recall: 0.7173913043478262
+F1 Score: 0.7202163778250734
+AUROC: 0.8760239445494644
+Confusion Matrix:
+ [[16  2  5  0]
+ [ 0 19  0  4]
+ [ 9  0 14  0]
+ [ 4  2  0 17]]
+------------------------------------------------

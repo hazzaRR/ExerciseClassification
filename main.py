@@ -15,9 +15,6 @@ import numpy as np
 
 def run_experiment(clf, clf_name, data_2d_array=False, uni_ts_clf=False):
 
-    # clf_name = str(clf).split('(')[0]
-
-    # print(clf_name)
     CURRENT_PATH = os.getcwd()
     DATA_PATH = os.path.join(CURRENT_PATH, "Data", "datasets")
 

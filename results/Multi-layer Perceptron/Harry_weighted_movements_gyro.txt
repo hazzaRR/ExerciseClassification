@@ -1,0 +1,18 @@
+Classifier Results
+------------------------------------------------
+Dataset: weighted movements gyro
+Classifier: Multi-layer Perceptron
+------------------------------------------------
+Train time: 0.21403717994689941
+Accuracy: 0.6521739130434783
+Balanced Accuracy: 0.6521739130434783
+Precision: 0.6563844393592677
+Recall: 0.6521739130434783
+F1 Score: 0.6521739130434783
+AUROC: 0.8597983616887208
+Confusion Matrix:
+ [[15  4  3  1]
+ [ 2 17  2  2]
+ [ 5  2 14  2]
+ [ 3  2  4 14]]
+------------------------------------------------

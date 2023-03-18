@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: bodyweight movements gyro
+Classifier: Time Series Forest
+------------------------------------------------
+Train time: 2.5121448040008545
+Accuracy: 0.9130434782608695
+Balanced Accuracy: 0.9130434782608696
+Precision: 0.9188712522045855
+Recall: 0.9130434782608696
+F1 Score: 0.9127272727272727
+AUROC: 0.9902331442974165
+Confusion Matrix:
+ [[23  0  0]
+ [ 4 19  0]
+ [ 0  2 21]]
+------------------------------------------------

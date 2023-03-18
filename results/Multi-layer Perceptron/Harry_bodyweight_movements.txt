@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: bodyweight movements
+Classifier: Multi-layer Perceptron
+------------------------------------------------
+Train time: 0.23604488372802734
+Accuracy: 0.855072463768116
+Balanced Accuracy: 0.8550724637681159
+Precision: 0.8624338624338624
+Recall: 0.8550724637681159
+F1 Score: 0.8557575757575758
+AUROC: 0.9294265910522999
+Confusion Matrix:
+ [[17  6  0]
+ [ 2 21  0]
+ [ 2  0 21]]
+------------------------------------------------

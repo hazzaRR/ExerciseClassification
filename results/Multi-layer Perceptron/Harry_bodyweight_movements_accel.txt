@@ -1,0 +1,17 @@
+Classifier Results
+------------------------------------------------
+Dataset: bodyweight movements accel
+Classifier: Multi-layer Perceptron
+------------------------------------------------
+Train time: 0.21053695678710938
+Accuracy: 0.7391304347826086
+Balanced Accuracy: 0.7391304347826088
+Precision: 0.7405555555555555
+Recall: 0.7391304347826088
+F1 Score: 0.7381727967452857
+AUROC: 0.8853182104599874
+Confusion Matrix:
+ [[17  4  2]
+ [ 5 15  3]
+ [ 3  1 19]]
+------------------------------------------------
