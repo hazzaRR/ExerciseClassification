@@ -98,7 +98,6 @@ def main():
 
                 """ check recordings have same amount of data points, since one of the recording typically has one or two extra timestamps"""
 
-                print(len(gyro_data)
                 if (len(gyro_data) != len(accel_data)):
                     num_recordings = min(len(gyro_data), len(accel_data))
                     accel_data = accel_data.iloc[:num_recordings:]
