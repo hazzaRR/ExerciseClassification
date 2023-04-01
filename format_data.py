@@ -89,6 +89,7 @@ def main():
             instance_number = 1
 
             for recording in os.listdir(current_movement_dir):
+                print(recording)
                 
                 exercise_recordings = os.path.join(current_movement_dir, recording)                
                 accel_data = pd.read_csv(os.path.join(exercise_recordings, 'Accelerometer.csv'))
@@ -97,6 +98,7 @@ def main():
 
                 """ check recordings have same amount of data points, since one of the recording typically has one or two extra timestamps"""
 
+                print(len(gyro_data)
                 if (len(gyro_data) != len(accel_data)):
                     num_recordings = min(len(gyro_data), len(accel_data))
                     accel_data = accel_data.iloc[:num_recordings:]
