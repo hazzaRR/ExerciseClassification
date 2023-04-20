@@ -89,6 +89,7 @@ def main():
             instance_number = 1
 
             for recording in os.listdir(current_movement_dir):
+                print(recording)
                 
                 exercise_recordings = os.path.join(current_movement_dir, recording)                
                 accel_data = pd.read_csv(os.path.join(exercise_recordings, 'Accelerometer.csv'))
