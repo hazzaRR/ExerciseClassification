@@ -1,9 +1,5 @@
 import os
 from sktime.datasets import load_from_tsfile
-from sktime.classification.kernel_based import RocketClassifier
-import numpy as np
-import pandas as pd
-import joblib
 import requests
 import json
 

@@ -7,7 +7,6 @@ import pandas as pd
 import numpy as np
 import os
 from sktime.datasets._data_io import write_ndarray_to_tsfile
-import math
 
 
 def create_ts_file(path_to_save, univariate_data_set=False, axis=None, multivariate_data='all'):   

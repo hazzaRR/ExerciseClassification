@@ -56,10 +56,10 @@ def create_ts_file(path_to_save):
     print(class_labels)
 
     """ create ts file for a train and test split """
-    write_ndarray_to_tsfile(data=X_train, path=f'{path_to_save}/independent', problem_name="person_independent", class_label=class_labels,
+    write_ndarray_to_tsfile(data=X_train, path=f'{path_to_save}', problem_name="person_independent", class_label=class_labels,
     class_value_list=y_train, equal_length=True, series_length=100, fold="_TRAIN")
 
-    write_ndarray_to_tsfile(data=X_test, path=f'{path_to_save}/independent', problem_name="person_independent", class_label=class_labels,
+    write_ndarray_to_tsfile(data=X_test, path=f'{path_to_save}', problem_name="person_independent", class_label=class_labels,
     class_value_list=y_test, equal_length=True, series_length=100, fold="_TEST")
 
 
