@@ -56,7 +56,7 @@ def time_series_experiment(X_train, y_train, X_test, y_test, clf, clf_name, file
     fig, ax = plt.subplots(figsize=(10, 9))
     cmd.plot(ax=ax, cmap=plt.cm.Blues, values_format='d')
     plt.xticks(rotation=45)
-    plt.title(f"{clf_name} on 50:50 train/test split {dataset_name}")
+    plt.title(f"{clf_name} on {dataset_name} train/test split")
     plt.savefig(cm_filepath)
 
 

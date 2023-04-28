@@ -22,7 +22,6 @@ def run_experiment(clf, clf_name, data_2d_array=False, uni_ts_clf=False):
 
     if not os.path.exists(RESULT_PATH):
         os.makedirs(RESULT_PATH)
-        os.makedirs(os.path.join(RESULT_PATH, 'confusion_matrices'))
 
     """ load in train and test data """
 
@@ -46,10 +45,10 @@ def run_experiment(clf, clf_name, data_2d_array=False, uni_ts_clf=False):
         )
 
     if uni_ts_clf:
-        col_ensemble_experiment(X_train, y_train, X_test, y_test, clf, clf_name, f"independent_model_results/{clf_name}/{clf_name}", f"independent_model_results/{clf_name}/confusion_matrices/{clf_name}", "person_independent")
+        col_ensemble_experiment(X_train, y_train, X_test, y_test, clf, clf_name, f"independent_model_results/{clf_name}/{clf_name}", f"independent_model_results/{clf_name}/{clf_name}_cm", "person_independent")
 
     else:
-        time_series_experiment(X_train, y_train, X_test, y_test, clf, clf_name, f"independent_model_results/{clf_name}/{clf_name}", f"independent_model_results/{clf_name}/confusion_matrices/{clf_name}", "person_independent")
+        time_series_experiment(X_train, y_train, X_test, y_test, clf, clf_name, f"independent_model_results/{clf_name}/{clf_name}", f"independent_model_results/{clf_name}/{clf_name}_cm", "person_independent")
 
 def main() :
 
