@@ -1,3 +1,11 @@
+"""
+Author: Harry Redman
+
+
+Description: file that loads in all the datasets and runs all the classifiers on the cross-validation functions made in 
+the cv_experiment python file
+
+"""
 import os
 from cv_experiment import time_series_experiment, col_ensemble_experiment
 from sktime.datasets import load_from_tsfile

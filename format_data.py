@@ -1,9 +1,8 @@
 """
 Author: Harry Redman
-Created on: 16/12/2022
 
-Description: takes the raw sensor data csv files and combines both the accelerometer and gyroscope data together into one csv and removes the 
-first 5 seconds of data and then take a 10 second sample window of the data instance]
+Description: Generates all formatted data instances by combining the accelerometer and gyroscope data into a single csv file,
+removing the first 5 seconds of data, and then taking a 10 second sample window of the data instance.
 
 """
 import os

@@ -1,8 +1,12 @@
 """
 Author: Harry Redman
-Created on: 11/01/23
-Description: [takes csv files of each data instance and creates datasets in a .ts file format so that it can be used with classifiers]
+
+
+Description: takes csv files of each data instance and creates datasets in a .ts file format
+that consists of just Harry's data with 50% of the data in the training set and 50% in the test set
+
 """
+
 import pandas as pd
 import numpy as np
 import os

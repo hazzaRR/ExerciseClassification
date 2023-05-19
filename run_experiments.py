@@ -1,3 +1,11 @@
+"""
+Author: Harry Redman
+
+
+Description: file that loads in all the 50:50 train and test datasets files and runs all the classifiers on the train-test functions made in 
+the experiment python file
+
+"""
 import os
 from experiment import time_series_experiment, col_ensemble_experiment
 from sktime.datasets import load_from_tsfile

@@ -1,3 +1,11 @@
+"""
+Author: Harry Redman
+
+
+Description: file that loads inall the person-independent datasets and train and tests them on the all the classifiers, using 
+the functions created in the experiment python file
+
+"""
 import os
 from experiment import time_series_experiment, col_ensemble_experiment
 from sktime.datasets import load_from_tsfile

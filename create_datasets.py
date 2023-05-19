@@ -1,7 +1,9 @@
 """
 Author: Harry Redman
 Created on: 11/01/23
-Description: [takes csv files of each data instance and creates full datasets, with no train test split, in a .ts file format so that it can be used with classifiers]
+Description: takes csv files of each data instance and creates full datasets files
+with no train test split, in a .ts file format so that it can be used with classifiers
+
 """
 import pandas as pd
 import numpy as np

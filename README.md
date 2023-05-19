@@ -18,14 +18,14 @@ The project has two main components:
 
 ## Data
 
-The dataset used in this project consists of time series data of exercises performed by individuals using the accelerometer and gyroscope sensors of a smartphone. Each exercise is labeled with one of the eight possible exercise types mentioned above. The dataset is split into training and test sets, with 50% of the data used for training and 50% for testing.
+The dataset used in this project consists of time series data of exercises performed by individuals using the accelerometer and gyroscope sensors of a smartphone. Each exercise is labelled with one of the eight possible exercise types mentioned above. The dataset is split into training and test sets, with 50% of the data used for training and 50% for testing.
 
 ## Preprocessing
 
 The time series data is preprocessed as follows:
 
 1. The time series is segmented into fixed-length windows of 100 data points, giving you a 10 second recording of each exercise.
-2. Each window is normalized using z-score normalization.
+2. Each window is normalized using min-max normalisation into the scale of 0-1
 
 ## Models
 
@@ -56,29 +56,39 @@ To use this project, you need to have the following libraries installed:
 - `matplotlib`
 - `Flask`
 
-Clone the repository to your local machine and navigate to the project directory. Run the following command to preprocess the data:
+Clone the repository to your local machine and navigate to the project directory. Run the following command to preprocess and format the data:
 
 python format_data.py
 
-This will preprocess the data and save it in the `data` directory.
+This will preprocess the data and save it in the `formatted_data` directory located in the `data` directory.
 
-To create the datasets, run the following command to preprocess the data:
+To create the datasets, run the following commands:
 
-python create_train_test_splits_datasets.py
+1. python create_train_test_splits_datasets.py - to create the 50:50 train-test split .ts files consisting of Harry's Data
+
+2. python create_datasets.py - to create a single .ts file consisting of all the all the data from Harry
+
+3. python create_datasets.py - to create a  train .ts file consisting of all the all the data from Harry and a test .ts file consisting of Barnaby's data
 
 To train and evaluate the models, run the following command:
 
-python main.py
+1. python run_experiments.py - This will train the models and save the results in the `results` directory for the 50:50 datasets
 
-This will train the models and save the results in the `results` directory.
+2. python cv_run_experiments - This will train the models and save the results in the 'cv_results' directory for the 10-fold cross-validation experiments
+
+3. python independent_experiment - This will train the models and save the results in the 'independent_model_results' directory for the person independent experiments
 
 ## Results
 
-The accuracy scores and confusion matrices for the trained models are saved in the `results` directory. The Rocket model achieves the highest accuracy score of 98.9%.
+The accuracy scores and confusion matrices for the trained models are saved in the `results`, 'cv_results' and 'independent_model_results' directories. The Rocket model achieved the highest accuracy score of 99.2%.
 
 ## Conclusion
 
 This project demonstrates the effectiveness of time series classification algorithms in predicting gym exercises from time series data. The Rocket model outperforms the other models in accuracy, suggesting that it may be the most suitable model for this task.
+
+## Prototype Experiments
+
+This project also conducted a pilot study before running the main experiments. All the scripts and results from this are located in the 'Prototype' directory.
 
 
 ## Running Flask Server

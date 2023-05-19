@@ -1,3 +1,10 @@
+"""
+Author: Harry Redman
+
+
+Description: file used to plot graphs of sensor data of specific data instances 
+
+"""
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -44,11 +51,11 @@ def produceGraph_instance(filepath):
 
     fig, ax = plt.subplots()
 
-    # ax.plot(timestamps, data['a_x'], '-', label="accel_X")
+    ax.plot(timestamps, data['a_x'], '-', label="accel_X")
     ax.plot(timestamps, data['a_y'], '-', label="accel_Y")
-    # ax.plot(timestamps, data['a_z'], '-', label="accel_Z")
+    ax.plot(timestamps, data['a_z'], '-', label="accel_Z")
     # ax.plot(timestamps, data['g_x'], '-', label="gyro_X")
-    ax.plot(timestamps, data['g_y'], '-', label="gyro_Y")
+    # ax.plot(timestamps, data['g_y'], '-', label="gyro_Y")
     # ax.plot(timestamps, data['g_z'], '-', label="gyro_Z")
 
     ax.legend()
@@ -62,8 +69,10 @@ def main():
     # filepath = os.path.join(CURRENT_PATH, 'Data', 'rawData', 'Harry', 'benchpress', 'benchpress_set4_2022-11-04')
     # produceGraph(filepath)
 
-    filepath = os.path.join(CURRENT_PATH, 'Data', 'formatted_data', 'Harry', 'militarypress', 'militarypress_instance_38.csv')
-    produceGraph_instance(filepath)
+    filepath1 = os.path.join(CURRENT_PATH, 'Data', 'formatted_data', 'Harry', 'deadlift', 'deadlift_instance_10.csv')
+    filepath2 = os.path.join(CURRENT_PATH, 'Data', 'formatted_data', 'Barns', 'deadlift', 'deadlift_instance_10.csv')
+    produceGraph_instance(filepath1)
+    produceGraph_instance(filepath2)
 
 if __name__ == "__main__":
     main()

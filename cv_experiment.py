@@ -1,3 +1,11 @@
+"""
+Author: Harry Redman
+
+
+Description: functions that run the time series experiments using a 10-fold cross-validation and saves the results
+in a .txt file and a confusion matrix of the photos in the cv_results folder.
+
+"""
 import os
 from sktime.datasets import load_from_tsfile
 import numpy as np
@@ -114,6 +122,7 @@ def time_series_experiment(X, y, clf, clf_name, filepath, cm_filepath, dataset_n
 
 
 
+""" function used to make univariate dataset compatible with multivariate data """
 def col_ensemble_experiment(X, y, clf_to_use, clf_name, filepath, cm_filepath, dataset_name):
 
     rows, cols, instances = np.shape(X)

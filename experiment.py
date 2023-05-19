@@ -1,3 +1,11 @@
+"""
+Author: Harry Redman
+
+
+Description: functions that run the time series experiments using a the single train-test split files and saves the results
+in a .txt file and a confusion matrix of the photos in the cv_results folder.
+
+"""
 import os
 from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
 from sktime.classification.interval_based import TimeSeriesForestClassifier
