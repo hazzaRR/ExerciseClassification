@@ -19,6 +19,9 @@ def create_ts_file(path_to_save, univariate_data_set=False, axis=None, multivari
     for participant in os.listdir(rootdir):
 
 
+        if participant != "Harry":
+            continue
+
         """ getting different datasets"""
 
         X_gym = []

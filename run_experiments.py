@@ -35,9 +35,16 @@ def run_experiment(clf, clf_name, data_2d_array=False, uni_ts_clf=False):
 
     for dataset_type in os.listdir(DATA_PATH):
 
+        if dataset_type == "person_independent":
+            continue
+
         CURRENT_DATASET = os.path.join(DATA_PATH, dataset_type)
 
         for dataset in os.listdir(CURRENT_DATASET):
+
+
+            if dataset == "person_independent":
+                continue
 
 
             print(os.path.join(CURRENT_DATASET, dataset, f"{dataset}_TRAIN.ts"))
