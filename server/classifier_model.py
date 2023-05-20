@@ -2,9 +2,6 @@ import os
 from sktime.datasets import load_from_tsfile
 from sktime.classification.kernel_based import RocketClassifier
 import numpy as np
-import pandas as pd
-import requests
-import json
 import pickle
 
 
@@ -14,8 +11,8 @@ def main():
 
     print(ROOT_DIR)
 
-    DATASET_PATH = os.path.join(ROOT_DIR, 'Data', 'datasets', 'gym', 'Harry_gym_movements', 'Harry_gym_movements_TRAIN.ts',)
-    DATASET_PATH_TEST = os.path.join(ROOT_DIR, 'Data', 'datasets', 'gym', 'Harry_gym_movements', 'Harry_gym_movements_TEST.ts')
+    DATASET_PATH = os.path.join(ROOT_DIR, 'datasets','Harry_gym_movements_TRAIN.ts',)
+    DATASET_PATH_TEST = os.path.join(ROOT_DIR, 'datasets', 'Harry_gym_movements_TEST.ts')
 
     rocket_classifier = RocketClassifier(num_kernels=1000)
 
@@ -24,12 +21,12 @@ def main():
     X_test, y_test = load_from_tsfile(DATASET_PATH_TEST, return_data_type="numpy3D")
 
 
-    print(np.shape(X_test[0:1]))
+    # print(np.shape(X_test[0:1]))
 
     rocket_classifier.fit(X_train, y_train)
 
 
-    pickle.dump(rocket_classifier, open("./server/rocket_model.pkl", "wb"))
+    pickle.dump(rocket_classifier, open("./rocket_model.pkl", "wb"))
 
 
 
