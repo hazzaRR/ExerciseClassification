@@ -59,20 +59,29 @@ def main():
     CURRENT_PATH = os.getcwd()
 
     movements = ["benchpress", "deadlift", "squat"]
-    rootdir = os.path.join(CURRENT_PATH, "Prototype", "rawData")
+
+    rootdir = os.path.join(CURRENT_PATH, "rawData")
 
     """ iterate through different movement subfolders"""
     for movement in movements:
 
+        # print(movement)
+
         folder_to_check = os.path.join(rootdir, movement)
 
+        print(folder_to_check)
+
         for subdir, dirs, files in os.walk(folder_to_check):
+
+            # print(dirs)
 
             instance_number = 1
 
             for name in dirs:
                 
                 currentfolder = os.path.join(folder_to_check, name)
+
+                print(currentfolder)
                 
                 accel_data = pd.read_csv(os.path.join(currentfolder, 'Accelerometer.csv'))
                 gyro_data = pd.read_csv(os.path.join(currentfolder, 'Gyroscope.csv'))
@@ -81,8 +90,8 @@ def main():
                 gyro_data = trim_dataset(gyro_data)
             
 
-                combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_1/data/data_instance", normalise_data=False)
-                combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype/Prototype_2/data/data_instance_normalised")
+                combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype_1/data/data_instance", normalise_data=False)
+                combine_data(accel_data, gyro_data, movement, instance_number, "./Prototype_2/data/data_instance_normalised")
 
                 instance_number+= 1
 

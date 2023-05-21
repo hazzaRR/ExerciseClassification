@@ -32,7 +32,7 @@ def sk_experiment(X_train, y_train, X_test, y_test, clf):
 def main():
 
     CURRENT_PATH = os.getcwd()
-    DATA_PATH = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data")
+    DATA_PATH = os.path.join(CURRENT_PATH, "Prototype_2", "data")
     
     X_train, y_train = load_from_tsfile(
     os.path.join(DATA_PATH, "Powerlift_movements/Powerlift_movements_TRAIN.ts"), return_data_type="numpy2d"

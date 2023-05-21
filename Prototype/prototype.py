@@ -7,7 +7,7 @@ import os
 def run_prototype_experiment(prototype_number):
 
     CURRENT_PATH = os.getcwd()
-    DATA_PATH = os.path.join(CURRENT_PATH, "Prototype", prototype_number, "data")
+    DATA_PATH = os.path.join(CURRENT_PATH, prototype_number, "data")
     
 
     """ load in train and test data """
@@ -63,7 +63,7 @@ def run_prototype_experiment(prototype_number):
     tsf_gyro_z_acc, tsf_gyro_z_time = tsf_experiment_univariate(X_train.iloc[:,5:6], y_train, X_test.iloc[:,5:6], y_test, 5)
 
 
-    save_results(f"Prototype/{prototype_number}/output/ed_knn_experiment_results", ed_accel_gyro_acc, ed_accel_gyro_time, ed_accel_acc, ed_accel_time, ed_gyro_acc, ed_gyro_time, \
+    save_results(f"./{prototype_number}/output/ed_knn_experiment_results", ed_accel_gyro_acc, ed_accel_gyro_time, ed_accel_acc, ed_accel_time, ed_gyro_acc, ed_gyro_time, \
         ed_accel_x_acc, ed_accel_x_time, ed_accel_y_acc, ed_accel_y_time, ed_accel_z_acc, ed_accel_z_time, ed_gyro_x_acc, ed_gyro_x_time,\
             ed_gyro_y_acc, ed_gyro_y_time, ed_gyro_z_acc, ed_gyro_z_time)
 
@@ -75,7 +75,7 @@ def run_prototype_experiment(prototype_number):
         ed_accel_x_acc, ed_accel_x_time, ed_accel_y_acc, ed_accel_y_time, ed_accel_z_acc, ed_accel_z_time, ed_gyro_x_acc, ed_gyro_x_time,\
             ed_gyro_y_acc, ed_gyro_y_time, ed_gyro_z_acc, ed_gyro_z_time)
 
-    save_results(f"Prototype/{prototype_number}/output/dtw_knn_experiment_results", dtw_accel_gyro_acc, dtw_accel_gyro_time, dtw_accel_acc, dtw_accel_time, dtw_gyro_acc, dtw_gyro_time, \
+    save_results(f"./{prototype_number}/output/dtw_knn_experiment_results", dtw_accel_gyro_acc, dtw_accel_gyro_time, dtw_accel_acc, dtw_accel_time, dtw_gyro_acc, dtw_gyro_time, \
         dtw_accel_x_acc, dtw_accel_x_time, dtw_accel_y_acc, dtw_accel_y_time, dtw_accel_z_acc, dtw_accel_z_time, dtw_gyro_x_acc, dtw_gyro_x_time,\
             dtw_gyro_y_acc, dtw_gyro_y_time, dtw_gyro_z_acc, dtw_gyro_z_time)
 
@@ -91,7 +91,7 @@ def run_prototype_experiment(prototype_number):
     print("Time Series Forest experiment")
     print("********************")
 
-    save_results(f"Prototype/{prototype_number}/output/tsf_experiment_results", tsf_accel_gyro_acc, tsf_accel_gyro_time, tsf_accel_acc, tsf_accel_time, tsf_gyro_acc, tsf_gyro_time, \
+    save_results(f"./{prototype_number}/output/tsf_experiment_results", tsf_accel_gyro_acc, tsf_accel_gyro_time, tsf_accel_acc, tsf_accel_time, tsf_gyro_acc, tsf_gyro_time, \
         tsf_accel_x_acc, tsf_accel_x_time, tsf_accel_y_acc, tsf_accel_y_time, tsf_accel_z_acc, tsf_accel_z_time, tsf_gyro_x_acc, tsf_gyro_x_time,\
             tsf_gyro_y_acc, tsf_gyro_y_time, tsf_gyro_z_acc, tsf_gyro_z_time)
 

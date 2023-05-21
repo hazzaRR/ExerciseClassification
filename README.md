@@ -56,31 +56,72 @@ To use this project, you need to have the following libraries installed:
 - `matplotlib`
 - `Flask`
 
+
+The recommend way to do this is by creating a Conda environment with the necessary dependencies, follow these steps:
+
+1. Install Conda: If you don't have Conda installed, you can download it from the official Conda website: https://docs.conda.io/en/latest/miniconda.html.
+
+2. Create the environment: Open a terminal or command prompt and navigate to the project's root directory. Run the following command to create a new Conda environment:
+
+```
+conda create --name gym_classification --file requirements.txt
+```
+
+This command will create a new environment named gym_classification and install all the required dependencies listed in the requirements.txt file.
+
+Activate the environment: Once the environment is created, activate it using the following command:
+
+```
+conda activate gym_classification
+```
+
 Clone the repository to your local machine and navigate to the project directory. Run the following command to preprocess and format the data:
 
+```
 python format_data.py
-
-This will preprocess the data and save it in the `formatted_data` directory located in the `data` directory.
+```
+- This will preprocess the data and save it in the `formatted_data` directory located in the `data` directory.
 
 To create the datasets, run the following commands:
+```
+python create_train_test_splits_datasets.py
+```
+- This creates the 50:50 train-test split .ts files consisting of Harry's Data
 
-1. python create_train_test_splits_datasets.py - to create the 50:50 train-test split .ts files consisting of Harry's Data
+```
+python create_datasets.py
+```
 
-2. python create_datasets.py - to create a single .ts file consisting of all the all the data from Harry
+- This creates a single .ts file consisting of all the all the data from Harry
 
-3. python create_datasets.py - to create a  train .ts file consisting of all the all the data from Harry and a test .ts file consisting of Barnaby's data
+```
+python create_datasets.py
+```
+
+- This creates a train .ts file consisting of all the all the data from Harry and a test .ts file consisting of Barnaby's data
+
 
 To train and evaluate the models, run the following command:
 
-1. python run_experiments.py - This will train the models and save the results in the `results` directory for the 50:50 datasets
+```
+python run_experiments.py 
+```
 
-2. python cv_run_experiments - This will train the models and save the results in the 'cv_results' directory for the 10-fold cross-validation experiments
+- This will train the models and save the results in the `results` directory for the 50:50 datasets
 
-3. python independent_experiment - This will train the models and save the results in the 'independent_model_results' directory for the person independent experiments
+```
+python cv_run_experiments.py
+```
+ - This will train the models and save the results in the `cv_results` directory for the 10-fold cross-validation experiments
+
+```
+python independent_experiment.py
+```
+ - This will train the models and save the results in the `independent_model_results` directory for the person independent experiments
 
 ## Results
 
-The accuracy scores and confusion matrices for the trained models are saved in the `results`, 'cv_results' and 'independent_model_results' directories. The Rocket model achieved the highest accuracy score of 99.2%.
+The accuracy scores and confusion matrices for the trained models are saved in the `results`, `cv_results` and `independent_model_results` directories. The Rocket model achieved the highest accuracy score of 99.2%.
 
 ## Conclusion
 
@@ -88,7 +129,8 @@ This project demonstrates the effectiveness of time series classification algori
 
 ## Prototype Experiments
 
-This project also conducted a pilot study before running the main experiments. All the scripts and results from this are located in the 'Prototype' directory.
+This project also conducted a pilot study before running the main experiments. All the scripts and results from this are located in the `Prototype` directory.
+
 
 
 ## Running Flask Server

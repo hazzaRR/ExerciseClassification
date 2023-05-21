@@ -7,7 +7,7 @@ print(CURRENT_PATH)
 
 def displayGraphs(table, movement):
 
-    table = pd.read_csv(os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised", table))
+    table = pd.read_csv(os.path.join(CURRENT_PATH, "Prototype_2", "data", "data_instance_normalised", table))
 
     a_x = table['a_x']
     a_y = table['a_y']
@@ -47,7 +47,7 @@ def displayGraphs(table, movement):
 def main():
 
 
-    for subdir, dirs, files in os.walk(os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")):
+    for subdir, dirs, files in os.walk(os.path.join(CURRENT_PATH, "Prototype_2", "data", "data_instance_normalised")):
             for file in files:
                 movement = file.split('_')
                 print(movement)

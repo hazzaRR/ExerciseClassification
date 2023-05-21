@@ -88,18 +88,18 @@ def create_ts_file(data_path, path_to_save, test_split=False, split_50=True):
 
 def main():
     CURRENT_PATH = os.getcwd()
-    # rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_1", "data", "data_instance")
+    # rootdir = os.path.join(CURRENT_PATH, "Prototype_1", "data", "data_instance")
     # path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_1", "data")
 
-    # rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")
-    # path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data")
+    # rootdir = os.path.join(CURRENT_PATH, "Prototype_2", "data", "data_instance_normalised")
+    # path_to_save = os.path.join(CURRENT_PATH, "Prototype_2", "data")
 
-    rootdir = os.path.join(CURRENT_PATH, "Prototype", "Prototype_2", "data", "data_instance_normalised")
-    path_to_save = os.path.join(CURRENT_PATH, "Prototype", "Prototype_3", "data")
+    rootdir = os.path.join(CURRENT_PATH, "Prototype_2", "data", "data_instance_normalised")
+    path_to_save = os.path.join(CURRENT_PATH, "Prototype_3", "data")
 
 
 
-    create_ts_file(data_path=rootdir, path_to_save=path_to_save,  test_split=True, split_50=True)
+    create_ts_file(data_path=rootdir, path_to_save=path_to_save,  test_split=False, split_50=True)
 
 
 if __name__ == "__main__":
