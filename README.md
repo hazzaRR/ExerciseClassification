@@ -64,7 +64,7 @@ The recommend way to do this is by creating a Conda environment with the necessa
 2. Create the environment: Open a terminal or command prompt and navigate to the project's root directory. Run the following command to create a new Conda environment:
 
 ```
-conda create --name gym_classification --file requirements.txt
+conda env create --file environment.yml
 ```
 
 This command will create a new environment named gym_classification and install all the required dependencies listed in the requirements.txt file.
