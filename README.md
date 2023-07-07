@@ -57,7 +57,7 @@ To use this project, you need to have the following libraries installed:
 - `Flask`
 
 
-The recommend way to do this is by creating a Conda environment with the necessary dependencies, follow these steps:
+The recommended way to do this is by creating a Conda environment with the necessary dependencies, follow these steps:
 
 1. Install Conda: If you don't have Conda installed, you can download it from the official Conda website: https://docs.conda.io/en/latest/miniconda.html.
 
@@ -67,7 +67,7 @@ The recommend way to do this is by creating a Conda environment with the necessa
 conda env create --file environment.yml
 ```
 
-This command will create a new environment named gym_classification and install all the required dependencies listed in the requirements.txt file.
+This command will create a new environment named gym_classification and install all the required dependencies listed in the environment.yml file.
 
 Activate the environment: Once the environment is created, activate it using the following command:
 
@@ -92,13 +92,13 @@ python create_train_test_splits_datasets.py
 python create_datasets.py
 ```
 
-- This creates a single .ts file consisting of all the all the data from Harry
+- This creates a single .ts file consisting of all the data from Harry
 
 ```
 python create_datasets.py
 ```
 
-- This creates a train .ts file consisting of all the all the data from Harry and a test .ts file consisting of Barnaby's data
+- This creates a train .ts file consisting of all the data from Harry and a test .ts file consisting of Barnaby's data
 
 
 To train and evaluate the models, run the following command:
@@ -117,7 +117,7 @@ python cv_run_experiments.py
 ```
 python independent_experiment.py
 ```
- - This will train the models and save the results in the `independent_model_results` directory for the person independent experiments
+ - This will train the models and save the results in the `independent_model_results` directory for the person-independent experiments
 
 ## Results
 
